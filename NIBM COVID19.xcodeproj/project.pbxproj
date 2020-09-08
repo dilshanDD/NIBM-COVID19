@@ -3,14 +3,15 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		7536F6C75E7E7FC212D9E0AF /* Pods_NIBM_COVID19.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8CAE2FB7CCA7231A7C3ED25 /* Pods_NIBM_COVID19.framework */; };
 		8EC3F5DB0771368C723F8680 /* Pods_NIBM_COVID19_NIBM_COVID19UITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8637B49096469AB8BDC1CFB0 /* Pods_NIBM_COVID19_NIBM_COVID19UITests.framework */; };
+		E37A08BD2507E492005844A6 /* ViewController_Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = E37A08BC2507E492005844A6 /* ViewController_Login.swift */; };
+		E37A08BF2507E902005844A6 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E37A08BE2507E902005844A6 /* Extensions.swift */; };
 		E39FE19524FA1C620042C1AA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E39FE19424FA1C620042C1AA /* AppDelegate.swift */; };
-		E39FE19924FA1C620042C1AA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E39FE19824FA1C620042C1AA /* ViewController.swift */; };
 		E39FE19E24FA1C620042C1AA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E39FE19D24FA1C620042C1AA /* Assets.xcassets */; };
 		E39FE1A124FA1C620042C1AA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E39FE19F24FA1C620042C1AA /* LaunchScreen.storyboard */; };
 		E39FE1AC24FA1C630042C1AA /* NIBM_COVID19Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E39FE1AB24FA1C630042C1AA /* NIBM_COVID19Tests.swift */; };
@@ -44,9 +45,10 @@
 		8637B49096469AB8BDC1CFB0 /* Pods_NIBM_COVID19_NIBM_COVID19UITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NIBM_COVID19_NIBM_COVID19UITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2D1835A6AB0AAF84F9FFCE0 /* Pods-NIBM COVID19Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NIBM COVID19Tests.debug.xcconfig"; path = "Target Support Files/Pods-NIBM COVID19Tests/Pods-NIBM COVID19Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		B847C628C35D2A2DF855DF2B /* Pods-NIBM COVID19.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NIBM COVID19.debug.xcconfig"; path = "Target Support Files/Pods-NIBM COVID19/Pods-NIBM COVID19.debug.xcconfig"; sourceTree = "<group>"; };
+		E37A08BC2507E492005844A6 /* ViewController_Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController_Login.swift; sourceTree = "<group>"; };
+		E37A08BE2507E902005844A6 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		E39FE19124FA1C620042C1AA /* NIBM COVID19.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "NIBM COVID19.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E39FE19424FA1C620042C1AA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E39FE19824FA1C620042C1AA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		E39FE19D24FA1C620042C1AA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E39FE1A024FA1C620042C1AA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E39FE1A224FA1C620042C1AA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -109,8 +111,44 @@
 				A2D1835A6AB0AAF84F9FFCE0 /* Pods-NIBM COVID19Tests.debug.xcconfig */,
 				391309DD95720ED3F134FD97 /* Pods-NIBM COVID19Tests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		E37A08B72507E0A9005844A6 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				E37A08BC2507E492005844A6 /* ViewController_Login.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		E37A08B82507E0B7005844A6 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E37A08B92507E0C6005844A6 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		E37A08BA2507E0CD005844A6 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		E37A08BB2507E0E0005844A6 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				E37A08BE2507E902005844A6 /* Extensions.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		E39FE18824FA1C610042C1AA = {
@@ -138,8 +176,12 @@
 		E39FE19324FA1C620042C1AA /* NIBM COVID19 */ = {
 			isa = PBXGroup;
 			children = (
+				E37A08B72507E0A9005844A6 /* Controllers */,
+				E37A08BB2507E0E0005844A6 /* Utils */,
+				E37A08BA2507E0CD005844A6 /* Services */,
+				E37A08B82507E0B7005844A6 /* Model */,
+				E37A08B92507E0C6005844A6 /* Views */,
 				E39FE19424FA1C620042C1AA /* AppDelegate.swift */,
-				E39FE19824FA1C620042C1AA /* ViewController.swift */,
 				E39FE19D24FA1C620042C1AA /* Assets.xcassets */,
 				E39FE19F24FA1C620042C1AA /* LaunchScreen.storyboard */,
 				E39FE1A224FA1C620042C1AA /* Info.plist */,
@@ -405,7 +447,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E39FE19924FA1C620042C1AA /* ViewController.swift in Sources */,
+				E37A08BD2507E492005844A6 /* ViewController_Login.swift in Sources */,
+				E37A08BF2507E902005844A6 /* Extensions.swift in Sources */,
 				E39FE19524FA1C620042C1AA /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
