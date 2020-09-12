@@ -16,7 +16,7 @@ var window: UIWindow?
         
         window = UIWindow()
         window?.makeKeyAndVisible()
-        window?.rootViewController = ViewController_Login()
+        window?.rootViewController = UINavigationController(rootViewController: loginViewController())
         return true
     }
 
