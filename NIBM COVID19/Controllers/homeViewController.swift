@@ -6,6 +6,8 @@
 //  Copyright © 2020 NIBM. All rights reserved.
 //
 import FirebaseAuth
+import FirebaseDatabase
+import Firebase
 import UIKit
 import MapKit
 
@@ -14,12 +16,12 @@ class homeViewController: UIViewController {
 
        override func viewDidLoad() {
            super.viewDidLoad()
-           checkIsUserLoggedIn()
-           enableLocationServices()
         view.backgroundColor = .backgroundColor
+        checkIsUserLoggedIn()
+        enableLocationServices()
         configureNavigationBar()
-      
-       configureUI()
+        configureUI()
+       // signOut()
  //....................
     view.addSubview(homepicviewController)
         homepicviewController.translatesAutoresizingMaskIntoConstraints = false
@@ -67,32 +69,6 @@ class homeViewController: UIViewController {
         mapviewController.heightAnchor.constraint(equalTo: view.layoutMarginsGuide.heightAnchor, multiplier: 0.3).isActive = true
         mapviewController.backgroundColor = .blue
 //....................
-    view.addSubview(homeButtonController)
-        homeButtonController.translatesAutoresizingMaskIntoConstraints = false
-        homeButtonController.topAnchor.constraint(equalTo: mapviewController.bottomAnchor, constant: 0).isActive = true
-        homeButtonController.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor, constant: 5).isActive = true
-        homeButtonController.widthAnchor.constraint(equalTo: view.layoutMarginsGuide.widthAnchor, multiplier: 1).isActive = true
-        homeButtonController.heightAnchor.constraint(equalTo: view.layoutMarginsGuide.heightAnchor, multiplier: 0.1).isActive = true
-        homeButtonController.backgroundColor = .blue
-//....................
-        
-//    view.addSubview(updateButtonController)
-//        updateButtonController.translatesAutoresizingMaskIntoConstraints = false
-//        updateButtonController.topAnchor.constraint(equalTo: mapviewController.bottomAnchor, constant: 0).isActive = true
-//        updateButtonController.leadingAnchor.constraint(equalTo:homeButtonController.trailingAnchor, constant: 10).isActive = true
-//        updateButtonController.widthAnchor.constraint(equalTo: view.layoutMarginsGuide.widthAnchor, multiplier: 0.32).isActive = true
-//        updateButtonController.heightAnchor.constraint(equalTo: view.layoutMarginsGuide.heightAnchor, multiplier: 0.1).isActive = true
-//        updateButtonController.backgroundColor = .blue
-//....................
-                
-//    view.addSubview(settingButtonController)
-//        settingButtonController.translatesAutoresizingMaskIntoConstraints = false
-//        settingButtonController.topAnchor.constraint(equalTo: mapviewController.bottomAnchor, constant: 0).isActive = true
-//        settingButtonController.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor, constant: 5).isActive = true
-//        settingButtonController.widthAnchor.constraint(equalTo: view.layoutMarginsGuide.widthAnchor, multiplier: 0.3).isActive = true
-//        settingButtonController.heightAnchor.constraint(equalTo: view.layoutMarginsGuide.heightAnchor, multiplier: 0.1).isActive = true
-//         settingButtonController.backgroundColor = .blue
-//.....................
         
         homepicviewController.addSubview(homepicture)
            homepicture.translatesAutoresizingMaskIntoConstraints = false
@@ -113,13 +89,24 @@ class homeViewController: UIViewController {
         
  //Safe Actions .................
         
+        
+        
+        safeActionviewController.addSubview(ActiontitleLabel1)
+        ActiontitleLabel1.translatesAutoresizingMaskIntoConstraints = false
+        ActiontitleLabel1.topAnchor.constraint(equalTo: safeActionviewController.topAnchor, constant: 80).isActive = true
+        ActiontitleLabel1.leadingAnchor.constraint(equalTo: safeActionviewController.leadingAnchor).isActive = true
+        
+        
+        safeActionviewController.addSubview(ActiontitleLabel2)
+        ActiontitleLabel2.translatesAutoresizingMaskIntoConstraints = false
+        ActiontitleLabel2.topAnchor.constraint(equalTo: safeActionviewController.topAnchor, constant: 100).isActive = true
+        ActiontitleLabel2.leadingAnchor.constraint(equalTo: safeActionviewController.leadingAnchor).isActive = true
+       
+
         safeActionviewController.addSubview(safeActionButton)
         safeActionButton.translatesAutoresizingMaskIntoConstraints = false
-
-        safeActionButton.topAnchor.constraint(equalTo: safeActionviewController.topAnchor).isActive = true
+        safeActionButton.topAnchor.constraint(equalTo: safeActionviewController.topAnchor, constant: 120).isActive = true
         safeActionButton.leadingAnchor.constraint(equalTo: safeActionviewController.leadingAnchor).isActive = true
-        safeActionButton.trailingAnchor.constraint(equalTo: safeActionviewController.trailingAnchor).isActive = true
-        safeActionButton.bottomAnchor.constraint(equalTo: safeActionviewController.bottomAnchor).isActive = true
       
 //----> Notification Sub Controllers
             notificationBellviewController.addSubview(bellpicture)
@@ -135,7 +122,6 @@ class homeViewController: UIViewController {
 
         notificationGoButton.topAnchor.constraint(equalTo: notificationBellviewController.topAnchor).isActive = true
         notificationGoButton.leadingAnchor.constraint(equalTo: bellpicture.trailingAnchor).isActive = true
-        notificationGoButton.trailingAnchor.constraint(equalTo: notificationBellviewController.trailingAnchor).isActive = true
         notificationGoButton.bottomAnchor.constraint(equalTo: notificationBellviewController.bottomAnchor).isActive = true
         
           notificationBellviewController.addSubview(goPicture)
@@ -170,9 +156,6 @@ class homeViewController: UIViewController {
     let notificationBellviewController = UIView()
     let caseupdateviewController = UIView()
     let mapviewController = UIView()
-    let homeButtonController = UIView()
-    let updateButtonController = UIView()
-    let settingButtonController = UIView()
 
 //Sub Controllers
     
@@ -180,11 +163,7 @@ class homeViewController: UIViewController {
     
     
     //MARK: - Selectors
-    @objc func handleSettings() {
-        let setting = settingViewController()
-        navigationController?.pushViewController(setting, animated: true)
-        
-    }
+
     @objc func goSafeActions() {
         let safeActions = safeActionsViewController()
         navigationController?.pushViewController(safeActions, animated: true)
@@ -195,7 +174,16 @@ class homeViewController: UIViewController {
         navigationController?.pushViewController(notifications, animated: true)
         
     }
-
+    @objc func goUpdate() {
+        let updates = updateViewController()
+        navigationController?.pushViewController(updates, animated: true)
+        
+    }
+    @objc func handleSettings() {
+        let setting = settingViewController()
+        navigationController?.pushViewController(setting, animated: true)
+        
+    }
       
       
     // MARK: - Propeties
@@ -203,18 +191,26 @@ class homeViewController: UIViewController {
     private let homepicture = UIImageView(image: #imageLiteral(resourceName: "home"))
     private let bellpicture = UIImageView(image: #imageLiteral(resourceName: "bell-2"))
     
-    private let titleLabel: UILabel = {
+          private let ActiontitleLabel1: UILabel = {
           let label = UILabel()
-          label.text = "Sign in"
-          label.font = UIFont(name: "Avenir-Light", size: 36)
-          label.textColor = UIColor(white: 1, alpha: 0.8)
+          label.text = "All you need is"
+          label.font = UIFont(name: "Avenir-Light", size: 16)
+          label.textColor = UIColor.lightGray
           
           return label
           }()
+        private let ActiontitleLabel2: UILabel = {
+         let label = UILabel()
+         label.text = "Stay at Home"
+            label.font = UIFont.boldSystemFont(ofSize: 16)
+         label.textColor = UIColor.lightGray
+         
+         return label
+         }()
     
         let safeActionButton: UIButton = {
         let button = UIButton(type: .system)
-        let attributedTitle = NSMutableAttributedString(string: "Stay at Home", attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 16), NSAttributedString.Key.foregroundColor: UIColor.lightGray])
+        let attributedTitle = NSMutableAttributedString(string: "", attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 16), NSAttributedString.Key.foregroundColor: UIColor.lightGray])
         attributedTitle.append(NSAttributedString(string: "Safe Actions",attributes: [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 16), NSAttributedString.Key.foregroundColor: UIColor.mainBlueTint]))
         button.setAttributedTitle(attributedTitle, for: .normal)
         button.addTarget(self, action: #selector(goSafeActions), for: .touchUpInside)
@@ -225,7 +221,7 @@ class homeViewController: UIViewController {
     let notificationGoButton: UIButton = {
     let button = UIButton(type: .system)
     let attributedTitle = NSMutableAttributedString(string: "NIBM is closed further notice", attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 16), NSAttributedString.Key.foregroundColor: UIColor.lightGray])
-    attributedTitle.append(NSAttributedString(string: "Safe Actions",attributes: [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 16), NSAttributedString.Key.foregroundColor: UIColor.mainBlueTint]))
+    attributedTitle.append(NSAttributedString(string: "Check now",attributes: [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 16), NSAttributedString.Key.foregroundColor: UIColor.mainBlueTint]))
     button.setAttributedTitle(attributedTitle, for: .normal)
     button.addTarget(self, action: #selector(goNotifications), for: .touchUpInside)
     return button
@@ -244,7 +240,7 @@ class homeViewController: UIViewController {
               let button = UIButton(type: .system)
               button.setTitle("Update", for: .normal)
               button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
-           //   button.addTarget(self, action: #selector(handleSignIn), for: .touchUpInside)
+              button.addTarget(self, action: #selector(goUpdate), for: .touchUpInside)
               return button
       }()
     private let settingsButton: UIButton = {
@@ -271,7 +267,7 @@ class homeViewController: UIViewController {
     
     // MARK: - Helper Function
     
-    func configureUI() {
+    func  configureUI() {
 
         confugireMapView()
         
@@ -302,7 +298,7 @@ class homeViewController: UIViewController {
               self.present(nav, animated: true, completion: nil)
                       }
            } else {
-               configureUI()
+            //   configureUI()
                print("DEBUG: User is logged in..")
            }
        }

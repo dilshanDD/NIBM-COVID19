@@ -5,6 +5,8 @@
 //  Created by DilshanKumarasingheMac on 9/11/20.
 //  Copyright © 2020 NIBM. All rights reserved.
 //
+import Firebase
+import FirebaseDatabase
 import FirebaseAuth
 import UIKit
 
@@ -113,6 +115,7 @@ class loginViewController: UIViewController {
     @objc func handleSignIn() {
         guard let email = emailTextFiled.text else { return }
         guard let password = passwordTextFiled.text else { return }
+        print("Login Clicked !")
         
         Auth.auth().signIn(withEmail: email, password: password) { (result, error) in
             if let error = error {
@@ -120,19 +123,20 @@ class loginViewController: UIViewController {
                 return
             }
         
-            let keyWindow = UIApplication.shared.connectedScenes
-            .filter({$0.activationState == .foregroundActive})
-            .map({$0 as? UIWindowScene})
-            .compactMap({$0})
-            .first?.windows
-            .filter({$0.isKeyWindow}).first
-            
-            guard let controller = keyWindow?.rootViewController as? homeViewController else { return }
-            controller.configureUI()
+//            let keyWindow = UIApplication.shared.connectedScenes
+//            .filter({$0.activationState == .foregroundActive})
+//            .map({$0 as? UIWindowScene})
+//            .compactMap({$0})
+//            .first?.windows
+//            .filter({$0.isKeyWindow}).first
+//
+//            guard let controller = keyWindow?.rootViewController as? homeViewController else { return }
+//            controller.configureUI()
             
             self.dismiss(animated: true, completion: nil)
             print("Login Successful..")
-            }
+            
+        }
     }
     
 }

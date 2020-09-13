@@ -15,7 +15,6 @@
 		E346DEAE250E8C6E00CDFBBF /* updateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E346DEAD250E8C6E00CDFBBF /* updateViewController.swift */; };
 		E348F22C250CA88C00E9C589 /* AuthButtonUIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E348F22B250CA88C00E9C589 /* AuthButtonUIButton.swift */; };
 		E348F22E250CEAFF00E9C589 /* homeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E348F22D250CEAFF00E9C589 /* homeViewController.swift */; };
-		E348F230250D35C700E9C589 /* SafeActionUIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E348F22F250D35C700E9C589 /* SafeActionUIButton.swift */; };
 		E37A08BF2507E902005844A6 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E37A08BE2507E902005844A6 /* Extensions.swift */; };
 		E39FE19524FA1C620042C1AA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E39FE19424FA1C620042C1AA /* AppDelegate.swift */; };
 		E39FE19E24FA1C620042C1AA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E39FE19D24FA1C620042C1AA /* Assets.xcassets */; };
@@ -59,7 +58,6 @@
 		E346DEAD250E8C6E00CDFBBF /* updateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = updateViewController.swift; sourceTree = "<group>"; };
 		E348F22B250CA88C00E9C589 /* AuthButtonUIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthButtonUIButton.swift; sourceTree = "<group>"; };
 		E348F22D250CEAFF00E9C589 /* homeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = homeViewController.swift; sourceTree = "<group>"; };
-		E348F22F250D35C700E9C589 /* SafeActionUIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafeActionUIButton.swift; sourceTree = "<group>"; };
 		E37A08BE2507E902005844A6 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		E39FE19124FA1C620042C1AA /* NIBM COVID19.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "NIBM COVID19.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E39FE19424FA1C620042C1AA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -155,7 +153,6 @@
 			isa = PBXGroup;
 			children = (
 				E348F22B250CA88C00E9C589 /* AuthButtonUIButton.swift */,
-				E348F22F250D35C700E9C589 /* SafeActionUIButton.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -472,7 +469,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				E37A08BF2507E902005844A6 /* Extensions.swift in Sources */,
-				E348F230250D35C700E9C589 /* SafeActionUIButton.swift in Sources */,
 				E346DEAC250E6CC700CDFBBF /* notificationViewController.swift in Sources */,
 				E346DEAE250E8C6E00CDFBBF /* updateViewController.swift in Sources */,
 				E348F22E250CEAFF00E9C589 /* homeViewController.swift in Sources */,
