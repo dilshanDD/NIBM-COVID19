@@ -11,6 +11,9 @@
 		8EC3F5DB0771368C723F8680 /* Pods_NIBM_COVID19_NIBM_COVID19UITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8637B49096469AB8BDC1CFB0 /* Pods_NIBM_COVID19_NIBM_COVID19UITests.framework */; };
 		E346416B250BDF2100B4A548 /* signUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E346416A250BDF2100B4A548 /* signUpViewController.swift */; };
 		E346416D250BE19800B4A548 /* loginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E346416C250BE19800B4A548 /* loginViewController.swift */; };
+		E348F22C250CA88C00E9C589 /* AuthButtonUIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E348F22B250CA88C00E9C589 /* AuthButtonUIButton.swift */; };
+		E348F22E250CEAFF00E9C589 /* homeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E348F22D250CEAFF00E9C589 /* homeViewController.swift */; };
+		E348F230250D35C700E9C589 /* SafeActionUIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E348F22F250D35C700E9C589 /* SafeActionUIButton.swift */; };
 		E37A08BF2507E902005844A6 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E37A08BE2507E902005844A6 /* Extensions.swift */; };
 		E39FE19524FA1C620042C1AA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E39FE19424FA1C620042C1AA /* AppDelegate.swift */; };
 		E39FE19E24FA1C620042C1AA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E39FE19D24FA1C620042C1AA /* Assets.xcassets */; };
@@ -48,6 +51,9 @@
 		B847C628C35D2A2DF855DF2B /* Pods-NIBM COVID19.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NIBM COVID19.debug.xcconfig"; path = "Target Support Files/Pods-NIBM COVID19/Pods-NIBM COVID19.debug.xcconfig"; sourceTree = "<group>"; };
 		E346416A250BDF2100B4A548 /* signUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = signUpViewController.swift; sourceTree = "<group>"; };
 		E346416C250BE19800B4A548 /* loginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loginViewController.swift; sourceTree = "<group>"; };
+		E348F22B250CA88C00E9C589 /* AuthButtonUIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthButtonUIButton.swift; sourceTree = "<group>"; };
+		E348F22D250CEAFF00E9C589 /* homeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = homeViewController.swift; sourceTree = "<group>"; };
+		E348F22F250D35C700E9C589 /* SafeActionUIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafeActionUIButton.swift; sourceTree = "<group>"; };
 		E37A08BE2507E902005844A6 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		E39FE19124FA1C620042C1AA /* NIBM COVID19.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "NIBM COVID19.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E39FE19424FA1C620042C1AA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -121,6 +127,7 @@
 			children = (
 				E346416C250BE19800B4A548 /* loginViewController.swift */,
 				E346416A250BDF2100B4A548 /* signUpViewController.swift */,
+				E348F22D250CEAFF00E9C589 /* homeViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -135,6 +142,8 @@
 		E37A08B92507E0C6005844A6 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				E348F22B250CA88C00E9C589 /* AuthButtonUIButton.swift */,
+				E348F22F250D35C700E9C589 /* SafeActionUIButton.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -451,8 +460,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				E37A08BF2507E902005844A6 /* Extensions.swift in Sources */,
+				E348F230250D35C700E9C589 /* SafeActionUIButton.swift in Sources */,
+				E348F22E250CEAFF00E9C589 /* homeViewController.swift in Sources */,
 				E346416B250BDF2100B4A548 /* signUpViewController.swift in Sources */,
 				E39FE19524FA1C620042C1AA /* AppDelegate.swift in Sources */,
+				E348F22C250CA88C00E9C589 /* AuthButtonUIButton.swift in Sources */,
 				E346416D250BE19800B4A548 /* loginViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
