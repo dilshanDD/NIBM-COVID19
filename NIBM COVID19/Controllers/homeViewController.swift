@@ -14,133 +14,246 @@ class homeViewController: UIViewController {
 
        override func viewDidLoad() {
            super.viewDidLoad()
-       //    checkIsUserLoggedIn()
-      //     enableLocationServices()
-        view.backgroundColor = .yellow
+           checkIsUserLoggedIn()
+           enableLocationServices()
+        view.backgroundColor = .backgroundColor
+        configureNavigationBar()
       
        configureUI()
  //....................
-    view.addSubview(homepicview)
-        homepicview.translatesAutoresizingMaskIntoConstraints = false
-        homepicview.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 10).isActive = true
-        homepicview.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor, constant: 5).isActive = true
-        homepicview.widthAnchor.constraint(equalTo: view.layoutMarginsGuide.widthAnchor, multiplier: 0.5).isActive = true
-        homepicview.heightAnchor.constraint(equalTo: view.layoutMarginsGuide.heightAnchor, multiplier: 0.3).isActive = true
-        homepicview.backgroundColor = .red
+    view.addSubview(homepicviewController)
+        homepicviewController.translatesAutoresizingMaskIntoConstraints = false
+        homepicviewController.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 10).isActive = true
+        homepicviewController.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor, constant: 5).isActive = true
+        homepicviewController.widthAnchor.constraint(equalTo: view.layoutMarginsGuide.widthAnchor, multiplier: 0.5).isActive = true
+        homepicviewController.heightAnchor.constraint(equalTo: view.layoutMarginsGuide.heightAnchor, multiplier: 0.3).isActive = true
+        homepicviewController.backgroundColor = .backgroundColor
+       
 //....................
 
-    view.addSubview(safeActionview)
-       safeActionview.translatesAutoresizingMaskIntoConstraints = false
-       safeActionview.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 10).isActive = true
-       safeActionview.leadingAnchor.constraint(equalTo: homepicview.trailingAnchor, constant: 5).isActive = true
-       safeActionview.widthAnchor.constraint(equalTo: view.layoutMarginsGuide.widthAnchor, multiplier: 0.5).isActive = true
-       safeActionview.heightAnchor.constraint(equalTo: view.layoutMarginsGuide.heightAnchor, multiplier: 0.3).isActive = true
-       safeActionview.backgroundColor = .red
+    view.addSubview(safeActionviewController)
+       safeActionviewController.translatesAutoresizingMaskIntoConstraints = false
+       safeActionviewController.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 10).isActive = true
+       safeActionviewController.leadingAnchor.constraint(equalTo: homepicviewController.trailingAnchor, constant: 0).isActive = true
+       safeActionviewController.widthAnchor.constraint(equalTo: view.layoutMarginsGuide.widthAnchor, multiplier: 0.5).isActive = true
+       safeActionviewController.heightAnchor.constraint(equalTo: view.layoutMarginsGuide.heightAnchor, multiplier: 0.3).isActive = true
+        safeActionviewController.backgroundColor = .white
 //....................
         
-  view.addSubview(notificationBellview)
-      notificationBellview.translatesAutoresizingMaskIntoConstraints = false
-      notificationBellview.topAnchor.constraint(equalTo: homepicview.bottomAnchor, constant: 10).isActive = true
-      notificationBellview.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor, constant: 5).isActive = true
-      notificationBellview.widthAnchor.constraint(equalTo: view.layoutMarginsGuide.widthAnchor, multiplier: 1).isActive = true
-      notificationBellview.heightAnchor.constraint(equalTo: view.layoutMarginsGuide.heightAnchor, multiplier: 0.1).isActive = true
-       notificationBellview.backgroundColor = .blue
+  view.addSubview(notificationBellviewController)
+      notificationBellviewController.translatesAutoresizingMaskIntoConstraints = false
+      notificationBellviewController.topAnchor.constraint(equalTo: homepicviewController.bottomAnchor, constant: 0).isActive = true
+      notificationBellviewController.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor, constant: 5).isActive = true
+      notificationBellviewController.widthAnchor.constraint(equalTo: view.layoutMarginsGuide.widthAnchor, multiplier: 1).isActive = true
+      notificationBellviewController.heightAnchor.constraint(equalTo: view.layoutMarginsGuide.heightAnchor, multiplier: 0.1).isActive = true
+        notificationBellviewController.backgroundColor = .white
 //....................
         
-    view.addSubview(caseupdateview)
-        caseupdateview.translatesAutoresizingMaskIntoConstraints = false
-        caseupdateview.topAnchor.constraint(equalTo: notificationBellview.bottomAnchor, constant: 10).isActive = true
-        caseupdateview.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor, constant: 5).isActive = true
-        caseupdateview.widthAnchor.constraint(equalTo: view.layoutMarginsGuide.widthAnchor, multiplier: 1).isActive = true
-        caseupdateview.heightAnchor.constraint(equalTo: view.layoutMarginsGuide.heightAnchor, multiplier: 0.2).isActive = true
-        caseupdateview.backgroundColor = .blue
+    view.addSubview(caseupdateviewController)
+        caseupdateviewController.translatesAutoresizingMaskIntoConstraints = false
+        caseupdateviewController.topAnchor.constraint(equalTo: notificationBellviewController.bottomAnchor, constant: 0).isActive = true
+        caseupdateviewController.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor, constant: 5).isActive = true
+        caseupdateviewController.widthAnchor.constraint(equalTo: view.layoutMarginsGuide.widthAnchor, multiplier: 1).isActive = true
+        caseupdateviewController.heightAnchor.constraint(equalTo: view.layoutMarginsGuide.heightAnchor, multiplier: 0.2).isActive = true
+        caseupdateviewController.backgroundColor = .blue
       
 //....................
         
-    view.addSubview(mapview)
-        mapview.translatesAutoresizingMaskIntoConstraints = false
-        mapview.topAnchor.constraint(equalTo: caseupdateview.bottomAnchor, constant: 10).isActive = true
-        mapview.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor, constant: 5).isActive = true
-        mapview.widthAnchor.constraint(equalTo: view.layoutMarginsGuide.widthAnchor, multiplier: 1).isActive = true
-        mapview.heightAnchor.constraint(equalTo: view.layoutMarginsGuide.heightAnchor, multiplier: 0.3).isActive = true
-        mapview.backgroundColor = .blue
+    view.addSubview(mapviewController)
+        mapviewController.translatesAutoresizingMaskIntoConstraints = false
+        mapviewController.topAnchor.constraint(equalTo: caseupdateviewController.bottomAnchor, constant: 0).isActive = true
+        mapviewController.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor, constant: 5).isActive = true
+        mapviewController.widthAnchor.constraint(equalTo: view.layoutMarginsGuide.widthAnchor, multiplier: 1).isActive = true
+        mapviewController.heightAnchor.constraint(equalTo: view.layoutMarginsGuide.heightAnchor, multiplier: 0.3).isActive = true
+        mapviewController.backgroundColor = .blue
 //....................
-    view.addSubview(homeButton)
-        homeButton.translatesAutoresizingMaskIntoConstraints = false
-        homeButton.topAnchor.constraint(equalTo: mapview.bottomAnchor, constant: 10).isActive = true
-        homeButton.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor, constant: 5).isActive = true
-        homeButton.widthAnchor.constraint(equalTo: view.layoutMarginsGuide.widthAnchor, multiplier: 0.3).isActive = true
-        homeButton.heightAnchor.constraint(equalTo: view.layoutMarginsGuide.heightAnchor, multiplier: 0.1).isActive = true
-        homeButton.backgroundColor = .blue
+    view.addSubview(homeButtonController)
+        homeButtonController.translatesAutoresizingMaskIntoConstraints = false
+        homeButtonController.topAnchor.constraint(equalTo: mapviewController.bottomAnchor, constant: 0).isActive = true
+        homeButtonController.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor, constant: 5).isActive = true
+        homeButtonController.widthAnchor.constraint(equalTo: view.layoutMarginsGuide.widthAnchor, multiplier: 1).isActive = true
+        homeButtonController.heightAnchor.constraint(equalTo: view.layoutMarginsGuide.heightAnchor, multiplier: 0.1).isActive = true
+        homeButtonController.backgroundColor = .blue
 //....................
         
-    view.addSubview(updateButton)
-        updateButton.translatesAutoresizingMaskIntoConstraints = false
-        updateButton.topAnchor.constraint(equalTo: mapview.bottomAnchor, constant: 10).isActive = true
-        updateButton.leadingAnchor.constraint(equalTo:homeButton.trailingAnchor, constant: 10).isActive = true
-        updateButton.widthAnchor.constraint(equalTo: view.layoutMarginsGuide.widthAnchor, multiplier: 0.32).isActive = true
-        updateButton.heightAnchor.constraint(equalTo: view.layoutMarginsGuide.heightAnchor, multiplier: 0.1).isActive = true
-        updateButton.backgroundColor = .blue
+//    view.addSubview(updateButtonController)
+//        updateButtonController.translatesAutoresizingMaskIntoConstraints = false
+//        updateButtonController.topAnchor.constraint(equalTo: mapviewController.bottomAnchor, constant: 0).isActive = true
+//        updateButtonController.leadingAnchor.constraint(equalTo:homeButtonController.trailingAnchor, constant: 10).isActive = true
+//        updateButtonController.widthAnchor.constraint(equalTo: view.layoutMarginsGuide.widthAnchor, multiplier: 0.32).isActive = true
+//        updateButtonController.heightAnchor.constraint(equalTo: view.layoutMarginsGuide.heightAnchor, multiplier: 0.1).isActive = true
+//        updateButtonController.backgroundColor = .blue
 //....................
                 
-    view.addSubview(settingButton)
-        settingButton.translatesAutoresizingMaskIntoConstraints = false
-        settingButton.topAnchor.constraint(equalTo: mapview.bottomAnchor, constant: 10).isActive = true
-        settingButton.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor, constant: 5).isActive = true
-        settingButton.widthAnchor.constraint(equalTo: view.layoutMarginsGuide.widthAnchor, multiplier: 0.3).isActive = true
-        settingButton.heightAnchor.constraint(equalTo: view.layoutMarginsGuide.heightAnchor, multiplier: 0.1).isActive = true
-         settingButton.backgroundColor = .blue
+//    view.addSubview(settingButtonController)
+//        settingButtonController.translatesAutoresizingMaskIntoConstraints = false
+//        settingButtonController.topAnchor.constraint(equalTo: mapviewController.bottomAnchor, constant: 0).isActive = true
+//        settingButtonController.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor, constant: 5).isActive = true
+//        settingButtonController.widthAnchor.constraint(equalTo: view.layoutMarginsGuide.widthAnchor, multiplier: 0.3).isActive = true
+//        settingButtonController.heightAnchor.constraint(equalTo: view.layoutMarginsGuide.heightAnchor, multiplier: 0.1).isActive = true
+//         settingButtonController.backgroundColor = .blue
+//.....................
+        
+        homepicviewController.addSubview(homepicture)
+           homepicture.translatesAutoresizingMaskIntoConstraints = false
+
+           homepicture.topAnchor.constraint(equalTo: homepicviewController.topAnchor).isActive = true
+           homepicture.leadingAnchor.constraint(equalTo: homepicviewController.leadingAnchor).isActive = true
+           homepicture.trailingAnchor.constraint(equalTo: homepicviewController.trailingAnchor).isActive = true
+           homepicture.bottomAnchor.constraint(equalTo: homepicviewController.bottomAnchor).isActive = true
+        
+//MAP.....................
+        mapviewController.addSubview(mapView)
+        mapView.translatesAutoresizingMaskIntoConstraints = false
+
+        mapView.topAnchor.constraint(equalTo: mapviewController.topAnchor).isActive = true
+        mapView.leadingAnchor.constraint(equalTo: mapviewController.leadingAnchor).isActive = true
+        mapView.trailingAnchor.constraint(equalTo: mapviewController.trailingAnchor).isActive = true
+        mapView.bottomAnchor.constraint(equalTo: mapviewController.bottomAnchor).isActive = true
+        
+ //Safe Actions .................
+        
+        safeActionviewController.addSubview(safeActionButton)
+        safeActionButton.translatesAutoresizingMaskIntoConstraints = false
+
+        safeActionButton.topAnchor.constraint(equalTo: safeActionviewController.topAnchor).isActive = true
+        safeActionButton.leadingAnchor.constraint(equalTo: safeActionviewController.leadingAnchor).isActive = true
+        safeActionButton.trailingAnchor.constraint(equalTo: safeActionviewController.trailingAnchor).isActive = true
+        safeActionButton.bottomAnchor.constraint(equalTo: safeActionviewController.bottomAnchor).isActive = true
+      
+//----> Notification Sub Controllers
+            notificationBellviewController.addSubview(bellpicture)
+            bellpicture.translatesAutoresizingMaskIntoConstraints = false
+            bellpicture.topAnchor.constraint(equalTo: notificationBellviewController.topAnchor, constant: 0).isActive = true
+            bellpicture.leadingAnchor.constraint(equalTo: notificationBellviewController.leadingAnchor).isActive = true
+            bellpicture.widthAnchor.constraint(equalTo: view.layoutMarginsGuide.widthAnchor, multiplier: 0.1).isActive = true
+            bellpicture.heightAnchor.constraint(equalTo: view.layoutMarginsGuide.heightAnchor, multiplier: 0.06).isActive = true
+
+        
+        notificationBellviewController.addSubview(notificationGoButton)
+        notificationGoButton.translatesAutoresizingMaskIntoConstraints = false
+
+        notificationGoButton.topAnchor.constraint(equalTo: notificationBellviewController.topAnchor).isActive = true
+        notificationGoButton.leadingAnchor.constraint(equalTo: bellpicture.trailingAnchor).isActive = true
+        notificationGoButton.trailingAnchor.constraint(equalTo: notificationBellviewController.trailingAnchor).isActive = true
+        notificationGoButton.bottomAnchor.constraint(equalTo: notificationBellviewController.bottomAnchor).isActive = true
+        
+          notificationBellviewController.addSubview(goPicture)
+          goPicture.translatesAutoresizingMaskIntoConstraints = false
+          goPicture.topAnchor.constraint(equalTo: notificationBellviewController.topAnchor, constant: 0).isActive = true
+          goPicture.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor, constant: 0).isActive = true
+          goPicture.widthAnchor.constraint(equalTo: view.layoutMarginsGuide.widthAnchor, multiplier: 0.1).isActive = true
+          goPicture.heightAnchor.constraint(equalTo: view.layoutMarginsGuide.heightAnchor, multiplier: 0.06).isActive = true
+        
+//Univercity case update.....................
  
         
+//Bottom buttons.....................
+        let bottomControlStackView = UIStackView(arrangedSubviews:[homeButton,updateButton,settingsButton])
+            bottomControlStackView.translatesAutoresizingMaskIntoConstraints = false
+            bottomControlStackView.distribution = .fillEqually
         
-        
-       }
-    let homepicview = UIView()
-    let safeActionview = UIView()
-    let notificationBellview = UIView()
-    let caseupdateview = UIView()
-    let mapview = UIView()
-    let homeButton = UIView()
-    let updateButton = UIView()
-    let settingButton = UIView()
+            view.addSubview(bottomControlStackView)
+            
+            NSLayoutConstraint.activate([
+                bottomControlStackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+                bottomControlStackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+                bottomControlStackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+                bottomControlStackView.heightAnchor.constraint(equalToConstant: 50),
+            ])
+      
+ }
+    
+//Main Controllers
+    let homepicviewController = UIView()
+    let safeActionviewController = UIView()
+    let notificationBellviewController = UIView()
+    let caseupdateviewController = UIView()
+    let mapviewController = UIView()
+    let homeButtonController = UIView()
+    let updateButtonController = UIView()
+    let settingButtonController = UIView()
+
+//Sub Controllers
     
     
+    
+    
+    //MARK: - Selectors
+    @objc func handleSettings() {
+        let setting = settingViewController()
+        navigationController?.pushViewController(setting, animated: true)
         
-        // MARK: - Properties
+    }
+    @objc func goSafeActions() {
+        let safeActions = safeActionsViewController()
+        navigationController?.pushViewController(safeActions, animated: true)
+        
+    }
+    @objc func goNotifications() {
+        let notifications = notificationViewController()
+        navigationController?.pushViewController(notifications, animated: true)
+        
+    }
+
+      
+      
     // MARK: - Propeties
-      private let titleLabel: UILabel = {
+    private let goPicture = UIImageView(image: #imageLiteral(resourceName: "pngwave"))
+    private let homepicture = UIImageView(image: #imageLiteral(resourceName: "home"))
+    private let bellpicture = UIImageView(image: #imageLiteral(resourceName: "bell-2"))
+    
+    private let titleLabel: UILabel = {
           let label = UILabel()
           label.text = "Sign in"
           label.font = UIFont(name: "Avenir-Light", size: 36)
           label.textColor = UIColor(white: 1, alpha: 0.8)
           
           return label
-      }()
-      
-      private lazy var emailContainerView: UIView = {
-                 let view = UIView().inputContainerView(image: #imageLiteral(resourceName: "ic_mail_outline_white_2x"), textField: emailTextFiled)
-                 view.heightAnchor.constraint(equalToConstant: 50).isActive = true
-                 return view
-                 }()
+          }()
     
- 
+        let safeActionButton: UIButton = {
+        let button = UIButton(type: .system)
+        let attributedTitle = NSMutableAttributedString(string: "Stay at Home", attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 16), NSAttributedString.Key.foregroundColor: UIColor.lightGray])
+        attributedTitle.append(NSAttributedString(string: "Safe Actions",attributes: [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 16), NSAttributedString.Key.foregroundColor: UIColor.mainBlueTint]))
+        button.setAttributedTitle(attributedTitle, for: .normal)
+        button.addTarget(self, action: #selector(goSafeActions), for: .touchUpInside)
+        return button
+         }()
     
-      private let emailTextFiled: UITextField = {
-                  return UITextField().textField(withPlaceholder: "Email", isSecureTextEntry: false)
-                 }()
+//Notification Button............
+    let notificationGoButton: UIButton = {
+    let button = UIButton(type: .system)
+    let attributedTitle = NSMutableAttributedString(string: "NIBM is closed further notice", attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 16), NSAttributedString.Key.foregroundColor: UIColor.lightGray])
+    attributedTitle.append(NSAttributedString(string: "Safe Actions",attributes: [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 16), NSAttributedString.Key.foregroundColor: UIColor.mainBlueTint]))
+    button.setAttributedTitle(attributedTitle, for: .normal)
+    button.addTarget(self, action: #selector(goNotifications), for: .touchUpInside)
+    return button
+     }()
 
+//Bottom Buttons............................    
     
-      private let signInButton: SafeActionUIButton = {
-              let button = SafeActionUIButton(type: .system)
-              button.setTitle("Safe actions", for: .normal)
+    private let homeButton: UIButton = {
+             let button = UIButton(type: .system)
+             button.setTitle("Home", for: .normal)
+             button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
+        //     button.addTarget(self, action: #selector(handleSignIn), for: .touchUpInside)
+             return button
+     }()
+    private let updateButton: UIButton = {
+              let button = UIButton(type: .system)
+              button.setTitle("Update", for: .normal)
               button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
-              button.addTarget(self, action: #selector(signOut), for: .touchUpInside)
+           //   button.addTarget(self, action: #selector(handleSignIn), for: .touchUpInside)
               return button
       }()
-    
- 
-    
-    
+    private let settingsButton: UIButton = {
+              let button = UIButton(type: .system)
+              button.setTitle("Setting", for: .normal)
+              button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
+              button.addTarget(self, action: #selector(handleSettings), for: .touchUpInside)
+              return button
+      }()
     
     
      private let mapView = MKMapView()
@@ -160,27 +273,24 @@ class homeViewController: UIViewController {
     
     func configureUI() {
 
-        view.backgroundColor = .backgroundColor
+        confugireMapView()
         
-              
-        
+    }
+  
+    func confugireMapView() {
+          view.addSubview(mapView)
+          mapView.frame = view.frame
+          mapView.showsUserLocation = true
+          mapView.userTrackingMode = .follow
+       }
     
-//        view.addSubview(mapView)
-//        mapView.frame = view.frame
-//
-//        confugireMapView()
-    
-    } 
-    
+    func configureNavigationBar() {
+        navigationController?.navigationBar.isHidden = false
+        navigationController?.navigationBar.barStyle = .black
+    }
    
 
-    func confugireMapView() {
-        view.addSubview(mapView)
-     //   mapView.frame = view.frame
-        
-        mapView.showsUserLocation = true
-        mapView.userTrackingMode = .follow
-    }
+   
     
        //MARK: API
     

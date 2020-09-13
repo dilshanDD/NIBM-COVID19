@@ -11,6 +11,8 @@
 		8EC3F5DB0771368C723F8680 /* Pods_NIBM_COVID19_NIBM_COVID19UITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8637B49096469AB8BDC1CFB0 /* Pods_NIBM_COVID19_NIBM_COVID19UITests.framework */; };
 		E346416B250BDF2100B4A548 /* signUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E346416A250BDF2100B4A548 /* signUpViewController.swift */; };
 		E346416D250BE19800B4A548 /* loginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E346416C250BE19800B4A548 /* loginViewController.swift */; };
+		E346DEAC250E6CC700CDFBBF /* notificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E346DEAB250E6CC700CDFBBF /* notificationViewController.swift */; };
+		E346DEAE250E8C6E00CDFBBF /* updateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E346DEAD250E8C6E00CDFBBF /* updateViewController.swift */; };
 		E348F22C250CA88C00E9C589 /* AuthButtonUIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E348F22B250CA88C00E9C589 /* AuthButtonUIButton.swift */; };
 		E348F22E250CEAFF00E9C589 /* homeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E348F22D250CEAFF00E9C589 /* homeViewController.swift */; };
 		E348F230250D35C700E9C589 /* SafeActionUIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E348F22F250D35C700E9C589 /* SafeActionUIButton.swift */; };
@@ -21,6 +23,8 @@
 		E39FE1AC24FA1C630042C1AA /* NIBM_COVID19Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E39FE1AB24FA1C630042C1AA /* NIBM_COVID19Tests.swift */; };
 		E39FE1B724FA1C630042C1AA /* NIBM_COVID19UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E39FE1B624FA1C630042C1AA /* NIBM_COVID19UITests.swift */; };
 		E39FE1C524FA34B10042C1AA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E39FE1C424FA34B10042C1AA /* GoogleService-Info.plist */; };
+		E3A02EE7250DEB1C006A8261 /* settingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3A02EE6250DEB1C006A8261 /* settingViewController.swift */; };
+		E3A02EE9250E1ACC006A8261 /* safeActionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3A02EE8250E1ACC006A8261 /* safeActionsViewController.swift */; };
 		FA6CADF61E76446ACE71E5EA /* Pods_NIBM_COVID19Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 682AEEBB619C356268E1E334 /* Pods_NIBM_COVID19Tests.framework */; };
 /* End PBXBuildFile section */
 
@@ -51,6 +55,8 @@
 		B847C628C35D2A2DF855DF2B /* Pods-NIBM COVID19.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NIBM COVID19.debug.xcconfig"; path = "Target Support Files/Pods-NIBM COVID19/Pods-NIBM COVID19.debug.xcconfig"; sourceTree = "<group>"; };
 		E346416A250BDF2100B4A548 /* signUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = signUpViewController.swift; sourceTree = "<group>"; };
 		E346416C250BE19800B4A548 /* loginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loginViewController.swift; sourceTree = "<group>"; };
+		E346DEAB250E6CC700CDFBBF /* notificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = notificationViewController.swift; sourceTree = "<group>"; };
+		E346DEAD250E8C6E00CDFBBF /* updateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = updateViewController.swift; sourceTree = "<group>"; };
 		E348F22B250CA88C00E9C589 /* AuthButtonUIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthButtonUIButton.swift; sourceTree = "<group>"; };
 		E348F22D250CEAFF00E9C589 /* homeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = homeViewController.swift; sourceTree = "<group>"; };
 		E348F22F250D35C700E9C589 /* SafeActionUIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafeActionUIButton.swift; sourceTree = "<group>"; };
@@ -67,6 +73,8 @@
 		E39FE1B624FA1C630042C1AA /* NIBM_COVID19UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NIBM_COVID19UITests.swift; sourceTree = "<group>"; };
 		E39FE1B824FA1C630042C1AA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E39FE1C424FA34B10042C1AA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		E3A02EE6250DEB1C006A8261 /* settingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = settingViewController.swift; sourceTree = "<group>"; };
+		E3A02EE8250E1ACC006A8261 /* safeActionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = safeActionsViewController.swift; sourceTree = "<group>"; };
 		E8CAE2FB7CCA7231A7C3ED25 /* Pods_NIBM_COVID19.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NIBM_COVID19.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F86CA8BD2845DDF6F0727644 /* Pods-NIBM COVID19-NIBM COVID19UITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NIBM COVID19-NIBM COVID19UITests.release.xcconfig"; path = "Target Support Files/Pods-NIBM COVID19-NIBM COVID19UITests/Pods-NIBM COVID19-NIBM COVID19UITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -128,6 +136,10 @@
 				E346416C250BE19800B4A548 /* loginViewController.swift */,
 				E346416A250BDF2100B4A548 /* signUpViewController.swift */,
 				E348F22D250CEAFF00E9C589 /* homeViewController.swift */,
+				E3A02EE6250DEB1C006A8261 /* settingViewController.swift */,
+				E3A02EE8250E1ACC006A8261 /* safeActionsViewController.swift */,
+				E346DEAB250E6CC700CDFBBF /* notificationViewController.swift */,
+				E346DEAD250E8C6E00CDFBBF /* updateViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -461,7 +473,11 @@
 			files = (
 				E37A08BF2507E902005844A6 /* Extensions.swift in Sources */,
 				E348F230250D35C700E9C589 /* SafeActionUIButton.swift in Sources */,
+				E346DEAC250E6CC700CDFBBF /* notificationViewController.swift in Sources */,
+				E346DEAE250E8C6E00CDFBBF /* updateViewController.swift in Sources */,
 				E348F22E250CEAFF00E9C589 /* homeViewController.swift in Sources */,
+				E3A02EE7250DEB1C006A8261 /* settingViewController.swift in Sources */,
+				E3A02EE9250E1ACC006A8261 /* safeActionsViewController.swift in Sources */,
 				E346416B250BDF2100B4A548 /* signUpViewController.swift in Sources */,
 				E39FE19524FA1C620042C1AA /* AppDelegate.swift in Sources */,
 				E348F22C250CA88C00E9C589 /* AuthButtonUIButton.swift in Sources */,

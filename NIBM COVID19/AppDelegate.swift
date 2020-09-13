@@ -17,7 +17,7 @@ var window: UIWindow?
         FirebaseApp.configure()
         window = UIWindow()
         window?.makeKeyAndVisible()
-        window?.rootViewController = homeViewController()
+        window?.rootViewController = UINavigationController(rootViewController: homeViewController())
         return true
     }
 

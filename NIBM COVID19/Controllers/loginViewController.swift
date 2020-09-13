@@ -116,7 +116,7 @@ class loginViewController: UIViewController {
         
         Auth.auth().signIn(withEmail: email, password: password) { (result, error) in
             if let error = error {
-                print("DEBUG: Faild to log user with error \(error)")
+                print("Faild to log user with error \(error)")
                 return
             }
         
