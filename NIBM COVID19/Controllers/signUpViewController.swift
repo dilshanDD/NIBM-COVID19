@@ -25,7 +25,7 @@ class signUpViewController: UIViewController {
     
     private let titleLabel: UILabel = {
         let label = UILabel()
-        label.text = "NTAXI"
+        label.text = "SignUp"
         label.font = UIFont(name: "Avenir-Light", size: 36)
         label.textColor = UIColor(white: 1, alpha: 0.8)
         
@@ -49,9 +49,9 @@ class signUpViewController: UIViewController {
         view.heightAnchor.constraint(equalToConstant: 50).isActive = true
         return view
     }()
-    
-    private lazy var genderContainerView: UIView = {
-        let view = UIView().inputContainerView(image: #imageLiteral(resourceName: "ic_account_box_white_2x"), segentedControl: genderSelectControl)
+
+    private lazy var roleContainerView: UIView = {
+        let view = UIView().inputContainerView(image: #imageLiteral(resourceName: "ic_account_box_white_2x"), segentedControl: roleSelectControl)
         view.heightAnchor.constraint(equalToConstant: 80).isActive = true
         return view
     }()
@@ -80,9 +80,9 @@ class signUpViewController: UIViewController {
     private let passwordTextFiled: UITextField = {
         return UITextField().textField(withPlaceholder: "Password", isSecureTextEntry: true)
     }()
-    
-    private let genderSelectControl: UISegmentedControl = {
-        let sc = UISegmentedControl(items: ["Male","Female"])
+
+    private let roleSelectControl: UISegmentedControl = {
+        let sc = UISegmentedControl(items: ["Student","Lecturer","Guest"])
         sc.backgroundColor = .backgroundColor
         sc.tintColor = UIColor(white: 1, alpha: 0.87)
         sc.selectedSegmentIndex = 0
@@ -92,7 +92,7 @@ class signUpViewController: UIViewController {
     
     private let signUpButton: AuthButtonUIButton = {
         let button = AuthButtonUIButton(type: .system)
-        button.setTitle("Sign Up", for: .normal)
+        button.setTitle("SignUp", for: .normal)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
         button.addTarget(self, action: #selector(handleSignUp), for: .touchUpInside)
         
@@ -120,7 +120,7 @@ class signUpViewController: UIViewController {
         titleLabel.anchor(top: view.safeAreaLayoutGuide.topAnchor)
         titleLabel.centerX(inView: view)
         
-        let stack = UIStackView(arrangedSubviews: [firstNameContainerView,lastNameContainerView,passwordContainerView,emailContainerView,genderContainerView,signUpButton ])
+        let stack = UIStackView(arrangedSubviews: [firstNameContainerView,lastNameContainerView,passwordContainerView,emailContainerView,roleContainerView,signUpButton ])
         stack.axis = .vertical
         stack.distribution = .fillProportionally
         stack.spacing = 24
@@ -147,8 +147,7 @@ class signUpViewController: UIViewController {
          guard let lastName = lastNameTextFiled.text else { return }
          guard let password = passwordTextFiled.text else { return }
          guard let email = emailTextFiled.text else { return }
-         let gender = genderSelectControl.selectedSegmentIndex
-       
+         let role = roleSelectControl.selectedSegmentIndex
         
         Auth.auth().createUser(withEmail: email, password: password) { (result, error) in
         if let error = error {
@@ -161,8 +160,8 @@ class signUpViewController: UIViewController {
             "firstName": firstName,
             "lastName": lastName,
             "password": password,
-            "email": email,
-            "gender": gender
+            "email": email,            
+            "role": role
         ] as [String : Any]
       
 

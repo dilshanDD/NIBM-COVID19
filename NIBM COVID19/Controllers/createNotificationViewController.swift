@@ -1,26 +1,24 @@
 //
-//  notificationViewController.swift
+//  createNotificationViewController.swift
 //  NIBM COVID19
 //
-//  Created by DilshanKumarasingheMac on 9/13/20.
+//  Created by DilshanKumarasingheMac on 9/14/20.
 //  Copyright © 2020 NIBM. All rights reserved.
 //
 
 import UIKit
 
-class notificationViewController: UIViewController {
+class createNotificationViewController: UIViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        view.backgroundColor = .white
+       override func viewDidLoad() {
+            super.viewDidLoad()
+            view.backgroundColor = .white
 
     //Back Button -...........
     view.addSubview(closeButton)
-           
-           closeButton.translatesAutoresizingMaskIntoConstraints = false
-           closeButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 10).isActive = true
-           closeButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10).isActive = true
-
+    closeButton.translatesAutoresizingMaskIntoConstraints = false
+    closeButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 10).isActive = true
+    closeButton.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 10).isActive = true
         }
         
         
@@ -43,3 +41,4 @@ class notificationViewController: UIViewController {
            }
 
     }
+
