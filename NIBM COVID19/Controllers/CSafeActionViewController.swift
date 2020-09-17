@@ -32,9 +32,9 @@ class CSafeActionViewController: UIViewController {
         let descriptionTextView: UITextView = {
             let textView = UITextView()
             
-            let attributedText = NSMutableAttributedString(string: "Wear masks!", attributes: [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 18)])
+            let attributedText = NSMutableAttributedString(string: "Wear masks!", attributes: [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 20)])
             
-            attributedText.append(NSAttributedString(string: "\n\n\nWhen in public, wear a cloth face covering over your nose and mouth.", attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 13), NSAttributedString.Key.foregroundColor: UIColor.gray]))
+            attributedText.append(NSAttributedString(string: "\n\n\nWhen in public, wear a cloth face covering over your nose and mouth.", attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 16), NSAttributedString.Key.foregroundColor: UIColor.gray]))
             
             textView.attributedText = attributedText
             textView.translatesAutoresizingMaskIntoConstraints = false
@@ -70,7 +70,7 @@ class CSafeActionViewController: UIViewController {
             pc.numberOfPages = 7
             pc.currentPage = 2
             
-            pc.currentPageIndicatorTintColor = .mainPink
+            pc.currentPageIndicatorTintColor = .SafemainPink
             pc.pageIndicatorTintColor = UIColor(red: 249/255, green: 207/255, blue: 224/255, alpha: 1)
             return pc
         }()

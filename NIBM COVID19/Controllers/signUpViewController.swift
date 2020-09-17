@@ -9,6 +9,7 @@ import FirebaseAuth
 import FirebaseDatabase
 import Firebase
 import UIKit
+import GeoFire
 
 class signUpViewController: UIViewController {
   
@@ -22,6 +23,8 @@ class signUpViewController: UIViewController {
     
     
     // MARK: - Properties
+    
+    private var location = LocationHandler.shared.locationManager.location
     
     private let titleLabel: UILabel = {
         let label = UILabel()
@@ -113,6 +116,16 @@ class signUpViewController: UIViewController {
     
     // MARK: - Helper Function
     
+    func uploadUserDataController(uid: String, values: [String: Any]) {
+        REF_USERS.child(uid).updateChildValues(values) { (error, ref) in
+                    
+          // self.handleShowLogIn()
+          
+        }
+    }
+    
+    
+    
     func configureUI() {
         view.backgroundColor = .backgroundColor
         
@@ -164,10 +177,26 @@ class signUpViewController: UIViewController {
             "role": role
         ] as [String : Any]
       
+             let geoFire = GeoFire(firebaseRef: REF_USER_LOCATIONS)
+           
+            guard let location = self.location else { return }
 
-         Database.database().reference().child("users").child(uid).updateChildValues(values) { (error, ref) in
-           print("Successfuly Registerd and save data..")
-       }
+                       geoFire.setLocation(location, forKey: uid, withCompletionBlock: { (error) in
+                            
+                           self.uploadUserDataController(uid: uid, values: values)
+                           if let error = error {
+                               print("DEBUG: fail to save loc \(error)")
+                               return
+                           }
+
+                       })
+                       
+                        self.uploadUserDataController(uid: uid, values: values)
+                   
+
+       //  Database.database().reference().child("users").child(uid).updateChildValues(values) { (error, ref) in
+//           print("Successfuly Registerd and save data..")
+//       }
      } 
     
 }

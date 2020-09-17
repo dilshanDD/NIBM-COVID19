@@ -7,39 +7,21 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseAuth
+import FirebaseStorage
 
 class notificationViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
+      
 
     //Back Button -...........
-    view.addSubview(closeButton)
-           
-           closeButton.translatesAutoresizingMaskIntoConstraints = false
-           closeButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 10).isActive = true
-           closeButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10).isActive = true
+    //view.addSubview(closeButton)
 
-        }
-        
-        
-        //MARK: - Properties
-        
-        private let closeButton: UIButton = {
-            let button = UIButton(type: .system)
-            button.setTitle("Home", for: .normal)
-            button.translatesAutoresizingMaskIntoConstraints = false
-            button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
-            button.setTitleColor(.gray, for: .normal)
-            button.addTarget(self, action: #selector(Back), for: .touchUpInside)
-         
-            return button
-        }()
-        
-        //MARK: - Selectors
-        @objc func Back() {
-        navigationController?.popViewController(animated: true)
-           }
+       
+}
 
-    }
+}

@@ -83,8 +83,10 @@ class updateViewController: UIViewController {
         
     }
     @objc func Back() {
-                navigationController?.popViewController(animated: true)
-                   }
+        let close = homeViewController()
+               navigationController?.pushViewController(close, animated: true)
+                   }   
+   
      
     //MARK: - Helper Functions
     

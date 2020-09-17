@@ -17,7 +17,8 @@ class homeViewController: UIViewController {
        override func viewDidLoad() {
            super.viewDidLoad()
         view.backgroundColor = .white
-        checkIsUserLoggedIn()        
+        checkIsUserLoggedIn()
+        enableLocationServices()
         configureUI()
         //signOut()
  }
@@ -68,7 +69,7 @@ class homeViewController: UIViewController {
     // MARK: - Propeties
     private let goPicture = UIImageView(image: #imageLiteral(resourceName: "pngwave"))
     private let homepicture = UIImageView(image: #imageLiteral(resourceName: "home"))
-    private let bellpicture = UIImageView(image: #imageLiteral(resourceName: "bell-2"))
+    private let bellpicture = UIImageView(image: #imageLiteral(resourceName: "WhatsApp Image 2020-09-17 at 1.01.22 PM"))
     
           private let ActiontitleLabel1: UILabel = {
           let label = UILabel()
@@ -99,7 +100,7 @@ class homeViewController: UIViewController {
 //Notification Button............
     let notificationGoButton: UIButton = {
     let button = UIButton(type: .system)
-    let attributedTitle = NSMutableAttributedString(string: "NIBM is closed further notice ", attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 16), NSAttributedString.Key.foregroundColor: UIColor.lightGray])
+    let attributedTitle = NSMutableAttributedString(string: "  NIBM is closed further notice ", attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 16), NSAttributedString.Key.foregroundColor: UIColor.lightGray])
     attributedTitle.append(NSAttributedString(string: "Check",attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 16), NSAttributedString.Key.foregroundColor: UIColor.orange]))
     button.setAttributedTitle(attributedTitle, for: .normal)
     button.addTarget(self, action: #selector(goNotifications), for: .touchUpInside)
@@ -191,7 +192,7 @@ class homeViewController: UIViewController {
           view.addSubview(notificationBellviewController)
               notificationBellviewController.translatesAutoresizingMaskIntoConstraints = false
               notificationBellviewController.topAnchor.constraint(equalTo: homepicviewController.bottomAnchor, constant: 0).isActive = true
-              notificationBellviewController.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor, constant: 5).isActive = true
+              notificationBellviewController.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor, constant: 0).isActive = true
               notificationBellviewController.widthAnchor.constraint(equalTo: view.layoutMarginsGuide.widthAnchor, multiplier: 1).isActive = true
               notificationBellviewController.heightAnchor.constraint(equalTo: view.layoutMarginsGuide.heightAnchor, multiplier: 0.1).isActive = true
                 notificationBellviewController.backgroundColor = .white
@@ -257,10 +258,10 @@ class homeViewController: UIViewController {
         //----> Notification Sub Controllers
                     notificationBellviewController.addSubview(bellpicture)
                     bellpicture.translatesAutoresizingMaskIntoConstraints = false
-                    bellpicture.topAnchor.constraint(equalTo: notificationBellviewController.topAnchor, constant: 0).isActive = true
+                    bellpicture.bottomAnchor.constraint(equalTo: notificationBellviewController.bottomAnchor, constant: -20).isActive = true
                     bellpicture.leadingAnchor.constraint(equalTo: notificationBellviewController.leadingAnchor).isActive = true
-                    bellpicture.widthAnchor.constraint(equalTo: view.layoutMarginsGuide.widthAnchor, multiplier: 0.1).isActive = true
-                    bellpicture.heightAnchor.constraint(equalTo: view.layoutMarginsGuide.heightAnchor, multiplier: 0.06).isActive = true
+                    bellpicture.widthAnchor.constraint(equalTo: view.layoutMarginsGuide.widthAnchor, multiplier: 0.08).isActive = true
+                    bellpicture.heightAnchor.constraint(equalTo: view.layoutMarginsGuide.heightAnchor, multiplier: 0.04).isActive = true
 
                 
                 notificationBellviewController.addSubview(notificationGoButton)
@@ -327,7 +328,10 @@ class homeViewController: UIViewController {
                 separatorView.leadingAnchor.constraint(equalTo: caseupdateviewController.leadingAnchor, constant: 5).isActive = true
                 separatorView.trailingAnchor.constraint(equalTo: caseupdateviewController.trailingAnchor, constant: -5).isActive = true
                 separatorView.bottomAnchor.constraint(equalTo: SeeMoreLabel1.topAnchor).isActive = true
-        
+        func configureNavigationBar() {
+            navigationController?.navigationBar.isHidden = true
+            navigationController?.navigationBar.barStyle = .black
+        }
     }
   
     func confugireMapView() {
@@ -355,6 +359,7 @@ class homeViewController: UIViewController {
        @objc func signOut() {
            do {
                try Auth.auth().signOut()
+            print("Signout !");
            } catch {
                print("DEBUG: sign out error")
            }
@@ -364,5 +369,33 @@ class homeViewController: UIViewController {
     
 }
 
+//  MARK: - LocationServices
+extension homeViewController: CLLocationManagerDelegate {
+    
+    func enableLocationServices() {
+        
+        locationManager.delegate = self
+        
+        switch CLLocationManager.authorizationStatus() {
+        case .notDetermined:
+            locationManager.requestWhenInUseAuthorization()
+        case .restricted, .denied:
+            break
+        case .authorizedWhenInUse:
+            locationManager.requestAlwaysAuthorization()
+        case .authorizedAlways:
+            locationManager.startUpdatingLocation()
+            locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        default:
+            break
+        }
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        if status == .authorizedWhenInUse {
+            locationManager.requestAlwaysAuthorization()
+        }
+    }
+}
 
 

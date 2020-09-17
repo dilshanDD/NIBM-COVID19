@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import MapKit
 extension UIView {
 
     func inputContainerView(image: UIImage, textField: UITextField? = nil, segentedControl: UISegmentedControl? = nil) -> UIView {
@@ -82,11 +82,16 @@ extension UIView {
     }
     
     func centerX(inView view: UIView) {
+        translatesAutoresizingMaskIntoConstraints = false
         centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
     }
 
-    func centerY(inView view: UIView, constant: CGFloat = 0) {
+    func centerY(inView view: UIView, leftAnchor: NSLayoutXAxisAnchor? = nil, paddingLeft: CGFloat = 0, constant: CGFloat = 0) {
         centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: constant).isActive = true
+        translatesAutoresizingMaskIntoConstraints = false
+        if let left = leftAnchor {
+            anchor(left: left, paddingLeft: paddingLeft)
+        }
     }
     
     func setDimensions(height: CGFloat, width: CGFloat) {
@@ -95,15 +100,13 @@ extension UIView {
         widthAnchor.constraint(equalToConstant: width).isActive = true
     }
     
-    func centerY(inView view: UIView, leftAnchor: NSLayoutXAxisAnchor? = nil, paddingLeft: CGFloat = 0, constant: CGFloat = 0) {
-        centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: constant).isActive = true
-        
-        if let left = leftAnchor {
-            anchor(left: left, paddingLeft: paddingLeft)
-        }
+    
+    func addShadow() {
+        layer.shadowColor = UIColor.black.cgColor
+        layer.shadowOpacity = 0.55
+        layer.shadowOffset = CGSize(width: 0.5, height: 0.5)
+        layer.masksToBounds = false
     }
-    
-    
 
 }
 extension UITextField {
@@ -119,6 +122,33 @@ extension UITextField {
         return tf
     }
 }
+
+
+extension MKMapView {
+    func zoomToFit(annotations: [MKAnnotation]) {
+        var zoomRect = MKMapRect.null
+        
+        annotations.forEach { (annotation) in
+            let annotationPoint = MKMapPoint(annotation.coordinate)
+            let pointRect = MKMapRect(x: annotationPoint.x, y: annotationPoint.y,
+                                      width: 0.01, height: 0.01)
+            zoomRect = zoomRect.union(pointRect)
+        }
+        
+        let insets = UIEdgeInsets(top: 100, left: 100, bottom: 300, right: 100)
+        setVisibleMapRect(zoomRect, edgePadding: insets, animated: true)
+    }
+    
+    func addAnnotationAndSelect(forCoordinate coordinate: CLLocationCoordinate2D) {
+        let annotation = MKPointAnnotation()
+        annotation.coordinate = coordinate
+        addAnnotation(annotation)
+        selectAnnotation(annotation, animated: true)
+    }
+}
+
+
+
 
 
 extension UIColor {

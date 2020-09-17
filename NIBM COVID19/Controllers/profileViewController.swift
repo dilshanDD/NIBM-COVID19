@@ -6,7 +6,11 @@
 //  Copyright © 2020 NIBM. All rights reserved.
 //
 
+
 import UIKit
+import Firebase
+import FirebaseAuth
+import FirebaseStorage
 
 class profileViewController: UIViewController {
 
@@ -53,24 +57,44 @@ class profileViewController: UIViewController {
     
     private let updateButton: UIButton = {
            let button = UIButton(type: .system)
-           let attributedTitle = NSMutableAttributedString(string: "Update", attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 20), NSAttributedString.Key.foregroundColor: UIColor.darkGray])
+           let attributedTitle = NSMutableAttributedString(string: "Update", attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 20), NSAttributedString.Key.foregroundColor: UIColor.lightGray])
            attributedTitle.append(NSAttributedString(string: "",attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 20), NSAttributedString.Key.foregroundColor: UIColor.white]))
            button.setAttributedTitle(attributedTitle, for: .normal)
-           button.addTarget(self, action: #selector(UpdateActions), for: .touchUpInside)
+           button.addTarget(self, action: #selector(handleLoginRegister), for: .touchUpInside)
            return button
            }()
+    lazy var profileImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = #imageLiteral(resourceName: "UserPic")
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.contentMode = .scaleAspectFill
+        
+        imageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleSelectProfileImageView)))
+        imageView.isUserInteractionEnabled = true
+        
+        return imageView
+    }()
+    
+    let userTemp: UILabel = {
+        let label = UILabel()
+        label.text = "97 F (31.1 C)"
+        label.font = UIFont(name: "Avenir-Light" , size: 25)
+        label.textColor = .white
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
     
     //MARK: - Selectors
 
-    @objc func UpdateActions() {
-        
-        
+    @objc func handleLoginRegister() {
+         handleRegister()
     }
     
     
     
+    
     func configureUI() {
-        view.backgroundColor = .white
+        view.backgroundColor = .black
         
 //        view.addSubview(titleLabel)
 //        titleLabel.anchor(top: view.safeAreaLayoutGuide.topAnchor)
@@ -83,6 +107,16 @@ class profileViewController: UIViewController {
         DetailsviewController.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -5).isActive = true        
         DetailsviewController.heightAnchor.constraint(equalTo: view.layoutMarginsGuide.heightAnchor, multiplier: 0.4).isActive = true
         DetailsviewController.backgroundColor = .lightGray
+        
+                
+        DetailsviewController.addSubview(profileImageView)
+        profileImageView.translatesAutoresizingMaskIntoConstraints = false
+        profileImageView.topAnchor.constraint(equalTo: DetailsviewController.topAnchor, constant: 0).isActive = true
+        profileImageView.leadingAnchor.constraint(equalTo: DetailsviewController.leadingAnchor, constant: 0).isActive = true
+        profileImageView.trailingAnchor.constraint(equalTo: DetailsviewController.trailingAnchor, constant: 0).isActive = true
+        profileImageView.heightAnchor.constraint(equalTo: DetailsviewController.layoutMarginsGuide.heightAnchor, multiplier: 1).isActive = true
+        profileImageView.backgroundColor = .lightGray
+        
         
 
         let stack = UIStackView(arrangedSubviews: [nameContainerView,indexContainerView,countryContainerView])
@@ -97,6 +131,117 @@ class profileViewController: UIViewController {
         updateButton.centerX(inView: view)
         updateButton.anchor(bottom: view.safeAreaLayoutGuide.bottomAnchor, height: 32)
         
+        view.addSubview(userTemp)
+        userTemp.translatesAutoresizingMaskIntoConstraints = false
+        userTemp.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 100).isActive = true
+        userTemp.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -100).isActive = true
+        userTemp.heightAnchor.constraint(equalTo: view.layoutMarginsGuide.heightAnchor, multiplier: 0.1).isActive = true
+        userTemp.topAnchor.constraint(equalTo: countryContainerView.bottomAnchor, constant: 10).isActive = true
+        
+        
     }
+    
+    override var preferredStatusBarStyle : UIStatusBarStyle {
+        return .lightContent
+    }
+}
+extension profileViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    func handleRegister() {
+                guard
+                    let name = nameTextFiled.text,
+                    let index = indexTextFiled.text,
+                    let country = countryTextFiled.text else {
+                    
+                        print("form error ...")
+                            
+            let alert = UIAlertController(title: "Error", message: "All Fields must be filled !", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default, handler: { _ in
+            NSLog("The \"OK\" alert occured.")
+            }))
+            self.present(alert, animated: true, completion: nil)
+             self.present(alert, animated: true)
+             return
+                }
+       
+        
+        guard let uid = Service.shared.currentUid else {
+                        return
+                    }
+        
+                    //successfully authenticated user
+                    let imageName = NSUUID().uuidString
+                    let storageRef = Storage.storage().reference().child("profile_images").child("\(imageName).png")
+        
+                    if let uploadData = self.profileImageView.image!.pngData() {
+        
+                        storageRef.putData(uploadData, metadata: nil, completion: { (_, err) in
+        
+                            if let error = err {
+                                print(error)
+                                return
+                            }
+        
+                            storageRef.downloadURL(completion: { (url, err) in
+                                if let err = err {
+                                    print(err)
+                                    return
+                                }
+        
+                                guard let url = url else { return }
+                                let values = ["name": name, "index": index, "profileImageUrl": url.absoluteString, "country":country]
+        
+                                self.registerUserIntoDatabaseWithUID(uid, values: values as [String : AnyObject])
+                            })
+        
+                        })
+                    }
+                
+    }
+    
+    fileprivate func registerUserIntoDatabaseWithUID(_ uid: String, values: [String: AnyObject]) {
+        
+        Service.shared.updateUserProfileWithImage(imageUrl:values["profileImageUrl"] as! String, username: values["name"] as! String, uIndex: values["index"] as! String, country: values["country"] as! String)
+    }
+    
+    @objc func handleSelectProfileImageView() {
+        let picker = UIImagePickerController()
+        
+        picker.delegate = self
+        picker.allowsEditing = true
+        
+        present(picker, animated: true, completion: nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        
+        let info = convertFromUIImagePickerControllerInfoKeyDictionary(info)
+        
+        
+        var selectedImageFromPicker: UIImage?
+        
+        if let editedImage = info["UIImagePickerControllerEditedImage"] as? UIImage {
+            selectedImageFromPicker = editedImage
+        } else if let originalImage = info["UIImagePickerControllerOriginalImage"] as? UIImage {
+            
+            selectedImageFromPicker = originalImage
+        }
+        
+        if let selectedImage = selectedImageFromPicker {
+            profileImageView.image = selectedImage
+        }
+        
+        dismiss(animated: true, completion: nil)
+        
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        print("canceled picker")
+        dismiss(animated: true, completion: nil)
+    }
+    
+}
 
+fileprivate func convertFromUIImagePickerControllerInfoKeyDictionary(_ input: [UIImagePickerController.InfoKey: Any]) -> [String: Any] {
+    return Dictionary(uniqueKeysWithValues: input.map {key, value in (key.rawValue, value)})
 }
