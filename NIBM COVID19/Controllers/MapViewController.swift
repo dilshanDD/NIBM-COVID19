@@ -137,21 +137,21 @@ class MapViewController: UIViewController {
                     guard let userAnno = annotation as? UserAnnotation else { return false }
                     if userAnno.uid == user.uid {
                     
-                        if weightSum >= 9 {
+                        if weightSum >= 35 {
                             userAnno.updateAnnotationPosition(withCoordinate: coordinate)
                             self.alertsArray.append(user.uid)
 
-                            let uialert = UIAlertController(title: "Warning", message: "You are near to suspect of a covid 19. Avoid the Danger" , preferredStyle: UIAlertController.Style.alert)
-                                           uialert.addAction(UIAlertAction(title: "Okay", style: UIAlertAction.Style.default, handler: nil))
+                            let uialert = UIAlertController(title: "Danger ! Found suspects of covid-19 !", message: "Area you entered not safe to travel." , preferredStyle: UIAlertController.Style.alert)
+                                           uialert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil))
                                            self.present(uialert, animated: true, completion: nil)
 
 
-                        } else if temparature > 38 {
+                        } else if temparature > 36 {
                             userAnno.updateAnnotationPosition(withCoordinate: coordinate)
                             self.alertsArray.append(user.uid)
                             
-                            let uialert = UIAlertController(title: "Warning", message: "You are near to suspect of a covid 19. Avoid the Danger" , preferredStyle: UIAlertController.Style.alert)
-                            uialert.addAction(UIAlertAction(title: "Okay", style: UIAlertAction.Style.default, handler: nil))
+                            let uialert = UIAlertController(title: "Danger ! Found suspects of covid-19 !", message: "Area you entered not safe to travel." , preferredStyle: UIAlertController.Style.alert)
+                            uialert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil))
                             self.present(uialert, animated: true, completion: nil)
                             
                         } else {
@@ -169,7 +169,7 @@ class MapViewController: UIViewController {
             }
             if !userIsVisible {
                 
-                if weightSum >= 9 {
+                if weightSum >= 35 {
                     self.mapView.addAnnotation(annotation)
                     self.alertsArray.append(user.uid)
                 } else if temparature > 38 {

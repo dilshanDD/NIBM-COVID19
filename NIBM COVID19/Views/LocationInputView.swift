@@ -1,10 +1,3 @@
-//
-//  LocationInputView.swift
-//  NibmTaxi
-//
-//  Created by thusitha on 8/12/20.
-//  Copyright © 2020 nibm. All rights reserved.
-//
 
 import UIKit
 
@@ -57,7 +50,7 @@ class LocationInputView: UIView {
     
     lazy var startingLocationTextField: UITextField = {
         let tf = UITextField()
-        tf.placeholder = "Current Location"
+        tf.placeholder = "Your Location"
         tf.backgroundColor = .groupTableViewBackground
         tf.isEnabled = false
         tf.font = UIFont.systemFont(ofSize: 14)
@@ -72,7 +65,7 @@ class LocationInputView: UIView {
     
     lazy var destinationTextField: UITextField = {
         let tf = UITextField()
-        tf.placeholder = "Enter a destination.."
+        tf.placeholder = "Destination"
         tf.backgroundColor = UIColor.rgb(red: 215, green: 215, blue: 215)
         tf.returnKeyType = .search
         tf.font = UIFont.systemFont(ofSize: 14)

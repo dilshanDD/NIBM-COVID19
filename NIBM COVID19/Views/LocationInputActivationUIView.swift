@@ -1,10 +1,4 @@
-//
-//  LocationInputActivationUIView.swift
-//  NibmTaxi
-//
-//  Created by thusitha on 8/8/20.
-//  Copyright © 2020 nibm. All rights reserved.
-//
+
 
 import UIKit
 
@@ -27,7 +21,7 @@ class LocationInputActivationUIView: UIView {
     
     private let placeholderLable: UILabel = {
         let label = UILabel()
-        label.text = "Where to?"
+        label.text = "Search"
         label.font = UIFont.systemFont(ofSize: 18)
         label.textColor = .darkGray
         

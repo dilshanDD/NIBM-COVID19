@@ -19,11 +19,9 @@ import UIKit
 
 class CSafeActionViewController: UIViewController {
 
-        // let's avoid polluting viewDidLoad
-        // {} is referred to as closure, or anon. functions
+        
         let bearImageView: UIImageView = {
             let imageView = UIImageView(image: #imageLiteral(resourceName: "3"))
-            // this enables autolayout for our imageView
             imageView.translatesAutoresizingMaskIntoConstraints = false
             imageView.contentMode = .scaleAspectFit
             return imageView
@@ -44,7 +42,7 @@ class CSafeActionViewController: UIViewController {
             return textView
         }()
         
-        // make sure you apply the correct encapsulation principles in your classes
+        
         private let previousButton: UIButton = {
             let button = UIButton(type: .system)
             button.setTitle("PREV", for: .normal)
@@ -78,7 +76,7 @@ class CSafeActionViewController: UIViewController {
         override func viewDidLoad() {
             super.viewDidLoad()
             
-            // here's our entry point into our app
+            
     //        view.addSubview(bearImageView)
             view.addSubview(descriptionTextView)
             view.backgroundColor = .white
