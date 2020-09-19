@@ -119,7 +119,11 @@ class signUpViewController: UIViewController {
     func uploadUserDataController(uid: String, values: [String: Any]) {
         REF_USERS.child(uid).updateChildValues(values) { (error, ref) in
                     
-          // self.handleShowLogIn()
+                    let uialert = UIAlertController(title: "Information", message: "Account created Successfully" , preferredStyle: UIAlertController.Style.alert)
+                    let okAction = UIAlertAction(title: "OK", style: .default) {(action : UIAlertAction!) -> Void in self.navigationController!.popToRootViewController(animated: true)}
+                    uialert.addAction(okAction)
+                    self.present(uialert, animated: true, completion: nil)
+                
           
         }
     }
@@ -188,7 +192,7 @@ class signUpViewController: UIViewController {
                                print("DEBUG: fail to save loc \(error)")
                                return
                            }
-
+                        
                        })
                        
                         self.uploadUserDataController(uid: uid, values: values)
@@ -197,7 +201,8 @@ class signUpViewController: UIViewController {
        //  Database.database().reference().child("users").child(uid).updateChildValues(values) { (error, ref) in
 //           print("Successfuly Registerd and save data..")
 //       }
-     } 
-    
+     }
+
+       
 }
 }

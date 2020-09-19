@@ -54,6 +54,7 @@ class DSurveyViewController: UIViewController {
            button.translatesAutoresizingMaskIntoConstraints = false
            button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
            button.setTitleColor(.mainColor, for: .normal)
+        button.addTarget(self, action: #selector(NoNext), for: .touchUpInside)
            return button
        }()
        
@@ -63,21 +64,10 @@ class DSurveyViewController: UIViewController {
            button.translatesAutoresizingMaskIntoConstraints = false
            button.setTitleColor(.mainColor, for: .normal)
            button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
+        button.addTarget(self, action: #selector(YesNext), for: .touchUpInside)
            return button
        }()
-       private let closeButton: UIButton = {
-         let button = UIButton(type: .system)
-         button.setTitle("Home", for: .normal)
-         button.translatesAutoresizingMaskIntoConstraints = false
-         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
-         button.setTitleColor(.gray, for: .normal)
-         button.addTarget(self, action: #selector(CloseView), for: .touchUpInside)
-      
-         return button
-     }()
-    
-    
-    
+     
        private let pageControl: UIPageControl = {
            let pc = UIPageControl()
         pc.numberOfPages = 4
@@ -130,18 +120,62 @@ class DSurveyViewController: UIViewController {
             descriptionTextView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 24).isActive = true
             descriptionTextView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -24).isActive = true
             descriptionTextView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0).isActive = true
-            
-            view.addSubview(closeButton)
-           closeButton.translatesAutoresizingMaskIntoConstraints = false
-           closeButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 10).isActive = true
-           closeButton.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 10).isActive = true
+           
+          
         }
     
      //MARK: - Selectors
-    @objc func CloseView() {
-        let closeV = homeViewController()
-        navigationController?.pushViewController(closeV, animated: true)
+    
+    @objc func YesNext() {
+               handleYESQD()
+               let closeV = homeViewController()
         
+                let uialert = UIAlertController(title: "Information", message: "Survey updated Successfully" , preferredStyle: UIAlertController.Style.alert)
+                let okAction = UIAlertAction(title: "OK", style: .default) {(action : UIAlertAction!) -> Void in self.navigationController!.pushViewController(closeV, animated: true)}
+                uialert.addAction(okAction)
+                self.present(uialert, animated: true, completion: nil)
+        
+        
+                }
+           
+           @objc func NoNext() {
+               handleNOQD()
+               let closeV = homeViewController()
+               
+               let uialert = UIAlertController(title: "Information", message: "Survey updated Successfully" , preferredStyle: UIAlertController.Style.alert)
+               let okAction = UIAlertAction(title: "OK", style: .default) {(action : UIAlertAction!) -> Void in self.navigationController!.pushViewController(closeV, animated: true)}
+               uialert.addAction(okAction)
+               self.present(uialert, animated: true, completion: nil)
+               
+           }
+}
+
+extension DSurveyViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    func handleYESQD() {
+                        var QD: Int?
+                            QD = 10
+                        guard let uid = Service.shared.currentUid else {
+                        return
+                        }
+                          let values = ["QD": QD]
+                          self.registerYesQDWithUID(uid, values: values as [String : AnyObject])
+                        }
+    func handleNOQD() {
+                        var QD: Int?
+                            QD = 5
+                        guard let uid = Service.shared.currentUid else {
+                        return
+                        }
+                          let values = ["QD": QD]
+                          self.registerYesQDWithUID(uid, values: values as [String : AnyObject])
+                        }
+    
+    
+    fileprivate func registerYesQDWithUID(_ uid: String, values: [String: AnyObject]) {
+        
+        Service.shared.updateQD(QD:values["QD"] as! Int)
     }
+
 }
 

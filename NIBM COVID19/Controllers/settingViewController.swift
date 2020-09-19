@@ -7,6 +7,9 @@
 //
 
 import UIKit
+import FirebaseAuth
+import Firebase
+import FirebaseCore
 
 class settingViewController: UIViewController {
 
@@ -23,7 +26,8 @@ class settingViewController: UIViewController {
       let labelviewController = UIView()
       let profileviewController = UIView()
       let contactviewController = UIView()
-      let shareviewController = UIView()   
+      let shareviewController = UIView()
+    
     
  
     // MARK: - Propeties
@@ -39,6 +43,8 @@ class settingViewController: UIViewController {
      
      return label
  }()
+    
+   
     
     private let profileButton: UIButton = {
        let button = UIButton(type: .system)
@@ -73,7 +79,7 @@ class settingViewController: UIViewController {
            let attributedTitle = NSMutableAttributedString(string: "Logout", attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 20), NSAttributedString.Key.foregroundColor: UIColor.darkGray])
            attributedTitle.append(NSAttributedString(string: "",attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 20), NSAttributedString.Key.foregroundColor: UIColor.white]))
            button.setAttributedTitle(attributedTitle, for: .normal)
-           button.addTarget(self, action: #selector(goShareActions), for: .touchUpInside)
+           button.addTarget(self, action: #selector(goLogoutActions), for: .touchUpInside)
            return button
            }()
     
@@ -97,12 +103,14 @@ class settingViewController: UIViewController {
     
     
     //MARK: - Selectors
-
+    
+    
        @objc func goProfileActions() {
            let profile = profileViewController()
            navigationController?.pushViewController(profile, animated: true)
            
        }
+    
     @objc func goContactActions() {
               let contact = contactUsViewController()
               navigationController?.pushViewController(contact, animated: true)
@@ -113,6 +121,24 @@ class settingViewController: UIViewController {
               navigationController?.pushViewController(share, animated: true)
               
           }
+    @objc func goLogoutActions(){
+  
+            do {
+                try Auth.auth().signOut()
+             print("Signout !");
+            } catch {
+                print("DEBUG: sign out error")
+            }            
+               
+            DispatchQueue.main.async {
+             let nav = UINavigationController(rootViewController: homeViewController())
+             nav.modalPresentationStyle = .fullScreen
+             self.present(nav, animated: true, completion: nil)
+                     }
+          
+         }
+   
+    
     @objc func Back() {
        navigationController?.popViewController(animated: true)
           }
@@ -207,6 +233,8 @@ class settingViewController: UIViewController {
         closeButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 10).isActive = true
         closeButton.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 10).isActive = true
         
+
+    
         
     }
     

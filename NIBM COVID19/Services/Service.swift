@@ -30,6 +30,22 @@ struct Service {
         return REF_USERS.child(currentUid ?? "").updateChildValues(["image":imageUrl, "fullName":username,"Index":uIndex,"country":country])
     }
     
+    func updateUserTemparature(temparature: String){        
+        return REF_USERS.child(currentUid ?? "").updateChildValues(["temparature":temparature])
+    }
+    
+    func updateQA(QA: Int){
+        return REF_USERS.child(currentUid ?? "").updateChildValues(["QA":QA])
+    }
+    func updateQB(QB: Int){
+        return REF_USERS.child(currentUid ?? "").updateChildValues(["QB":QB])
+    }
+    func updateQC(QC: Int){
+        return REF_USERS.child(currentUid ?? "").updateChildValues(["QC":QC])
+    }
+    func updateQD(QD: Int){
+        return REF_USERS.child(currentUid ?? "").updateChildValues(["QD":QD])
+    }
 
     func fetchUsersLocation(location: CLLocation, completion: @escaping(User) -> Void) {
            let geoFire = GeoFire(firebaseRef: REF_USER_LOCATIONS)
@@ -44,4 +60,7 @@ struct Service {
                })
            }
        }
+    
+    
+    
 }

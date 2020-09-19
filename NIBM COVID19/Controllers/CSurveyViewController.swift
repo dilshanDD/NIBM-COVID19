@@ -42,7 +42,7 @@ class CSurveyViewController: UIViewController {
             button.translatesAutoresizingMaskIntoConstraints = false
             button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
             button.setTitleColor(.mainColor, for: .normal)
-            button.addTarget(self, action: #selector(DSurvey), for: .touchUpInside)
+            button.addTarget(self, action: #selector(NoNext), for: .touchUpInside)
             return button
         }()
         
@@ -52,7 +52,7 @@ class CSurveyViewController: UIViewController {
             button.translatesAutoresizingMaskIntoConstraints = false
             button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
             button.setTitleColor(.mainColor, for: .normal)
-            button.addTarget(self, action: #selector(DSurvey), for: .touchUpInside)
+            button.addTarget(self, action: #selector(YesNext), for: .touchUpInside)
             return button
         }()
         
@@ -119,16 +119,54 @@ class CSurveyViewController: UIViewController {
         }
     
     //MARK: - Selectors
-     @objc func DSurvey() {
-         let D = DSurveyViewController()
-         navigationController?.pushViewController(D, animated: true)
-         
-     }
+     @objc func YesNext() {
+            handleYESQC()
+            let D = DSurveyViewController()
+            navigationController?.pushViewController(D, animated: true)
+             }
+        
+        @objc func NoNext() {
+            handleNOQC()
+            let D = DSurveyViewController()
+            navigationController?.pushViewController(D, animated: true)
+            
+        }
+        
     @objc func Back() {
                 navigationController?.popViewController(animated: true)
                    }
      
 
+}
+
+extension CSurveyViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    func handleYESQC() {
+                        var QC: Int?
+                            QC = 10
+                        guard let uid = Service.shared.currentUid else {
+                        return
+                        }
+                          let values = ["QC": QC]
+                          self.registerYesQCWithUID(uid, values: values as [String : AnyObject])
+                        }
+    func handleNOQC() {
+                        var QC: Int?
+                            QC = 5
+                        guard let uid = Service.shared.currentUid else {
+                        return
+                        }
+                          let values = ["QC": QC]
+                          self.registerYesQCWithUID(uid, values: values as [String : AnyObject])
+                        }
+    
+    
+    fileprivate func registerYesQCWithUID(_ uid: String, values: [String: AnyObject]) {
+        
+        Service.shared.updateQC(QC:values["QC"] as! Int)
     }
+
+}
+
 
 

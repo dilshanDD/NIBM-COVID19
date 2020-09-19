@@ -52,7 +52,7 @@ class BSurveyViewController: UIViewController {
            button.translatesAutoresizingMaskIntoConstraints = false
            button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
         button.setTitleColor(.mainColor, for: .normal)
-        button.addTarget(self, action: #selector(CSurvey), for: .touchUpInside)
+        button.addTarget(self, action: #selector(NoNext), for: .touchUpInside)
            return button
        }()
        
@@ -62,7 +62,7 @@ class BSurveyViewController: UIViewController {
            button.translatesAutoresizingMaskIntoConstraints = false
            button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
            button.setTitleColor(.mainColor, for: .normal)
-           button.addTarget(self, action: #selector(CSurvey), for: .touchUpInside)
+           button.addTarget(self, action: #selector(YesNext), for: .touchUpInside)
            return button
        }()
        
@@ -121,14 +121,53 @@ class BSurveyViewController: UIViewController {
         }
     
      //MARK: - Selectors
-    @objc func CSurvey() {
+    @objc func YesNext() {
+        handleYESQB()
+        let C = CSurveyViewController()
+        navigationController?.pushViewController(C, animated: true)
+         }
+    
+    @objc func NoNext() {
+        handleNOQB()
         let C = CSurveyViewController()
         navigationController?.pushViewController(C, animated: true)
         
     }
+    
+    
+    
     @objc func Back() {
                 navigationController?.popViewController(animated: true)
                    }
             
-        }
+ }
         
+extension BSurveyViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    func handleYESQB() {
+                        var QB: Int?
+                            QB = 10
+                        guard let uid = Service.shared.currentUid else {
+                        return
+                        }
+                          let values = ["QB": QB]
+                          self.registerYesQBWithUID(uid, values: values as [String : AnyObject])
+                        }
+    func handleNOQB() {
+                        var QB: Int?
+                            QB = 5
+                        guard let uid = Service.shared.currentUid else {
+                        return
+                        }
+                          let values = ["QB": QB]
+                          self.registerYesQBWithUID(uid, values: values as [String : AnyObject])
+                        }
+    
+    
+    fileprivate func registerYesQBWithUID(_ uid: String, values: [String: AnyObject]) {
+        
+        Service.shared.updateQB(QB:values["QB"] as! Int)
+    }
+
+}
+

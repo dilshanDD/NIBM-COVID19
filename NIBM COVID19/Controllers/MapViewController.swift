@@ -1,10 +1,11 @@
 //
-//  MapViewController.swift
+//  settingViewController.swift
 //  NIBM COVID19
 //
-//  Created by Thanuja Nayanajith on 9/13/20.
+//  Created by DilshanKumarasingheMac on 9/13/20.
 //  Copyright © 2020 NIBM. All rights reserved.
 //
+
 
 import UIKit
 import MapKit
@@ -27,10 +28,18 @@ private enum ActionButtonConfiguration {
 
 class MapViewController: UIViewController {
     
+    override func viewDidLoad() {
+           super.viewDidLoad()
+       config()
+       configureLocationInputActivationView()
+       enableLocationServices()
+       fetchUserLocations()
+        
+             }
+    
     // MARK: - Properties
     
     private let mapView = MKMapView()
-//    private let locationManager = CLLocationManager()
     private let locationManager = LocationHandler.shared.locationManager
 
     private let actionButton: UIButton = {
@@ -44,27 +53,19 @@ class MapViewController: UIViewController {
       private var actionButtonConfig = ActionButtonConfiguration()
       private let tableView = UITableView()
       private var searchResults = [MKPlacemark]()
-    private final let locationInputViewHeight: CGFloat = 200
-    private let locationInputView = LocationInputView()
-     private var route: MKRoute?
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-//        setupUi()
-         config()
-        configureLocationInputActivationView()
-        enableLocationServices()
-        
-       
-
-        
-    }
+      private final let locationInputViewHeight: CGFloat = 200
+      private let locationInputView = LocationInputView()
+      private var route: MKRoute?
+      var alertsArray = [String]()
+    
+    
+   
+    
      // MARK: - functions
     
     @objc func actionButtonPressed() {
          switch actionButtonConfig {
          case .showMenu:
-             //print("DEBUG: Show menu")
              break
          case .dismissActionView:
              removeAnnotationsAndOverlays()
@@ -98,7 +99,7 @@ class MapViewController: UIViewController {
               let annotation = UserAnnotation(uid: user.uid, coordinate: coordinate)
               
               var userIsVisible: Bool {
-                  
+                
                   return self.mapView.annotations.contains { (annotation) -> Bool in
                       guard let userAnno = annotation as? UserAnnotation else { return false }
                       
@@ -116,6 +117,75 @@ class MapViewController: UIViewController {
               }
           }
       }
+    
+    func fetchUserLocations() {
+        
+        var weightSum = 0
+        var temparature = 0.0
+        guard let location = locationManager?.location else { return }
+        
+        Service.shared.fetchUsersLocation(location: location) { (user) in
+            guard let coordinate = user.location?.coordinate else { return }
+            let annotation = UserAnnotation(uid: user.uid, coordinate: coordinate)
+            
+            weightSum = user.QA + user.QB + user.QC + user.QD
+            temparature = Double(user.temparature)!
+            
+            var userIsVisible: Bool {
+                
+                return self.mapView.annotations.contains { (annotation) -> Bool in
+                    guard let userAnno = annotation as? UserAnnotation else { return false }
+                    if userAnno.uid == user.uid {
+                    
+                        if weightSum >= 9 {
+                            userAnno.updateAnnotationPosition(withCoordinate: coordinate)
+                            self.alertsArray.append(user.uid)
+
+                            let uialert = UIAlertController(title: "Warning", message: "You are near to suspect of a covid 19. Avoid the Danger" , preferredStyle: UIAlertController.Style.alert)
+                                           uialert.addAction(UIAlertAction(title: "Okay", style: UIAlertAction.Style.default, handler: nil))
+                                           self.present(uialert, animated: true, completion: nil)
+
+
+                        } else if temparature > 38 {
+                            userAnno.updateAnnotationPosition(withCoordinate: coordinate)
+                            self.alertsArray.append(user.uid)
+                            
+                            let uialert = UIAlertController(title: "Warning", message: "You are near to suspect of a covid 19. Avoid the Danger" , preferredStyle: UIAlertController.Style.alert)
+                            uialert.addAction(UIAlertAction(title: "Okay", style: UIAlertAction.Style.default, handler: nil))
+                            self.present(uialert, animated: true, completion: nil)
+                            
+                        } else {
+                            
+                            if let index = self.alertsArray.firstIndex(of: user.uid) {
+                                self.alertsArray.remove(at: index)
+                            }
+                            self.mapView.removeAnnotation(annotation)
+                        }
+
+                        return true
+                    }
+                    return false
+                }
+            }
+            if !userIsVisible {
+                
+                if weightSum >= 9 {
+                    self.mapView.addAnnotation(annotation)
+                    self.alertsArray.append(user.uid)
+                } else if temparature > 38 {
+                    self.mapView.addAnnotation(annotation)
+                    self.alertsArray.append(user.uid)
+                } else {
+                    if let index = self.alertsArray.firstIndex(of: user.uid) {
+                        self.alertsArray.remove(at: index)
+                    }
+                    self.mapView.removeAnnotation(annotation)
+                }
+                
+            }
+        }
+    }
+    
     
     func removeAnnotationsAndOverlays() {
           mapView.annotations.forEach { (annotation) in
@@ -142,8 +212,8 @@ class MapViewController: UIViewController {
     
     func config() {
         configureUi()
-      
         fetchUsers()
+      //  fetchUserLocations()
     
     }
     func configureUi() {
@@ -223,9 +293,9 @@ private extension MapViewController {
          directionRequest.calculate { (response, error) in
              guard let response = response else { return }
              
-             self.route = response.routes[0]
-             guard let polyline = self.route?.polyline else { return }
-             self.mapView.addOverlay(polyline)
+         self.route = response.routes[0]
+         guard let polyline = self.route?.polyline else { return }
+         self.mapView.addOverlay(polyline)
          }
      }
     
@@ -278,7 +348,8 @@ extension MapViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         if let annotation = annotation as? UserAnnotation {
             let view = MKAnnotationView(annotation: annotation, reuseIdentifier: annotationIdentifier)
-            view.image = #imageLiteral(resourceName: "chevron-sign-to-right")
+            view.image = #imageLiteral(resourceName: "iconfinder_map-marker_299087-2")
+          
             return view
         }
         

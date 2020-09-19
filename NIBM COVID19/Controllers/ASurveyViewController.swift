@@ -44,15 +44,15 @@ class ASurveyViewController: UIViewController {
                 return textView
             }()
 
-
+             //   var QA: Int?
                private let noButton: UIButton = {
                    let button = UIButton(type: .system)
                    button.setTitle("NO", for: .normal)
                    button.translatesAutoresizingMaskIntoConstraints = false
                    button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
-                   button.addTarget(self, action: #selector(BSurvey), for: .touchUpInside)
+                   button.addTarget(self, action: #selector(NoNext), for: .touchUpInside)
                    button.setTitleColor(.mainColor, for: .normal)
-                   
+                  
                    
                 
                    return button
@@ -64,7 +64,7 @@ class ASurveyViewController: UIViewController {
                    button.translatesAutoresizingMaskIntoConstraints = false
                    button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
                    button.setTitleColor(.mainColor, for: .normal)
-                   button.addTarget(self, action: #selector(BSurvey), for: .touchUpInside)
+                   button.addTarget(self, action: #selector(YesNext), for: .touchUpInside)
                    return button
                }()
                
@@ -122,7 +122,17 @@ class ASurveyViewController: UIViewController {
                 
                 //MARK: - Selectors
 
-                @objc func BSurvey() {
+                @objc func YesNext() {
+                    
+                    handleYESQA()
+                    let B = BSurveyViewController()
+                    navigationController?.pushViewController(B, animated: true)
+                    
+                }
+    
+                @objc func NoNext() {
+                    
+                    handleNOQA()
                     let B = BSurveyViewController()
                     navigationController?.pushViewController(B, animated: true)
                     
@@ -134,5 +144,33 @@ class ASurveyViewController: UIViewController {
         static var mainColor = UIColor(red: 142/255, green: 68/255, blue: 173/255, alpha: 1)
     }
 
+extension ASurveyViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    func handleYESQA() {
+                        var QA: Int?
+                            QA = 10
+                        guard let uid = Service.shared.currentUid else {
+                        return
+                        }
+                          let values = ["QA": QA]
+                          self.registerYesQAWithUID(uid, values: values as [String : AnyObject])
+                        }
+    func handleNOQA() {
+                        var QA: Int?
+                            QA = 5
+                        guard let uid = Service.shared.currentUid else {
+                        return
+                        }
+                          let values = ["QA": QA]
+                          self.registerYesQAWithUID(uid, values: values as [String : AnyObject])
+                        }
+    
+    
+    fileprivate func registerYesQAWithUID(_ uid: String, values: [String: AnyObject]) {
+        
+        Service.shared.updateQA(QA:values["QA"] as! Int)
+    }
+
+}
 
 

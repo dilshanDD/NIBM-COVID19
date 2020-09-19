@@ -195,6 +195,10 @@ extension profileViewController: UIImagePickerControllerDelegate, UINavigationCo
                             })
         
                         })
+                        let uialert = UIAlertController(title: "Information", message: "User data updated Successfully" , preferredStyle: UIAlertController.Style.alert)
+                        let okAction = UIAlertAction(title: "OK", style: .default) {(action : UIAlertAction!) -> Void in self.navigationController!.popToRootViewController(animated: true)}
+                        uialert.addAction(okAction)
+                        self.present(uialert, animated: true, completion: nil)
                     }
                 
     }

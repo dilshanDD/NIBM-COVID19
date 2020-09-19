@@ -31,6 +31,11 @@ class homeViewController: UIViewController {
     let mapviewController = UIView()
     let seeMoreController = UIView()
     let separatorView = UIView()
+    let dotPicController = UIView()
+    let infectedController = UIView()
+    let recoveredController = UIView()
+    let deathController = UIView()
+    
 //Sub Controllers
     
     
@@ -70,8 +75,59 @@ class homeViewController: UIViewController {
     private let goPicture = UIImageView(image: #imageLiteral(resourceName: "pngwave"))
     private let homepicture = UIImageView(image: #imageLiteral(resourceName: "home"))
     private let bellpicture = UIImageView(image: #imageLiteral(resourceName: "WhatsApp Image 2020-09-17 at 1.01.22 PM"))
+    private let yellowDotPic = UIImageView(image: #imageLiteral(resourceName: "WhatsApp Image 2020-09-17 at 8.14.13 PM-2"))
+    private let greenDotPic = UIImageView(image: #imageLiteral(resourceName: "WhatsApp Image 2020-09-17 at 8.14.13 PM-3"))
+    private let redDotPic = UIImageView(image: #imageLiteral(resourceName: "WhatsApp Image 2020-09-17 at 8.14.13 PM"))
+
+
+            private let infectedCountLabel: UILabel = {
+            let label = UILabel()
+            label.text = "2"
+            label.font = UIFont(name: "Avenir-Light", size: 32)
+                label.textColor = UIColor.black
+            return label
+            }()
+
+            private let deathCountLabel: UILabel = {
+            let label = UILabel()
+            label.text = "0"
+            label.font = UIFont(name: "Avenir-Light", size: 32)
+                label.textColor = UIColor.black
+            return label
+            }()
+
+
+            private let recoveredCountLabel: UILabel = {
+            let label = UILabel()
+            label.text = "20"
+            label.font = UIFont(name: "Avenir-Light", size: 32)
+                label.textColor = UIColor.black
+            return label
+            }()
+
+            private let infectedLabel: UILabel = {
+            let label = UILabel()
+            label.text = "Infected"
+            label.font = UIFont(name: "Avenir-Light", size: 16)
+            label.textColor = UIColor.darkGray
+            return label
+            }()
+            private let deathsLabel: UILabel = {
+            let label = UILabel()
+            label.text = "Deaths"
+            label.font = UIFont(name: "Avenir-Light", size: 16)
+                label.textColor = UIColor.darkGray
+            return label
+            }()
+            private let recoveredLabel: UILabel = {
+            let label = UILabel()
+            label.text = "Recovered"
+            label.font = UIFont(name: "Avenir-Light", size: 16)
+                label.textColor = UIColor.darkGray
+            return label
+            }()
     
-          private let ActiontitleLabel1: UILabel = {
+           private let ActiontitleLabel1: UILabel = {
           let label = UILabel()
           label.text = "All you need is"
           label.font = UIFont(name: "Avenir-Light", size: 16)
@@ -204,7 +260,7 @@ class homeViewController: UIViewController {
                 caseupdateviewController.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor, constant: 5).isActive = true
                 caseupdateviewController.widthAnchor.constraint(equalTo: view.layoutMarginsGuide.widthAnchor, multiplier: 1).isActive = true
                 caseupdateviewController.heightAnchor.constraint(equalTo: view.layoutMarginsGuide.heightAnchor, multiplier: 0.2).isActive = true
-                caseupdateviewController.backgroundColor = .blue
+              
               
         //....................
                 
@@ -214,7 +270,7 @@ class homeViewController: UIViewController {
                 mapviewController.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor, constant: 5).isActive = true
                 mapviewController.widthAnchor.constraint(equalTo: view.layoutMarginsGuide.widthAnchor, multiplier: 1).isActive = true
                 mapviewController.heightAnchor.constraint(equalTo: view.layoutMarginsGuide.heightAnchor, multiplier: 0.3).isActive = true
-                mapviewController.backgroundColor = .blue
+                
         //....................
                 
                 homepicviewController.addSubview(homepicture)
@@ -302,32 +358,125 @@ class homeViewController: UIViewController {
                        seeMoreController.topAnchor.constraint(equalTo: caseupdateviewController.topAnchor, constant: 0).isActive = true
                        seeMoreController.leadingAnchor.constraint(equalTo: caseupdateviewController.leadingAnchor, constant: 0).isActive = true
                        seeMoreController.trailingAnchor.constraint(equalTo: caseupdateviewController.trailingAnchor).isActive = true
-                       seeMoreController.heightAnchor.constraint(equalTo: view.layoutMarginsGuide.heightAnchor, multiplier: 0.05).isActive = true
-                       seeMoreController.backgroundColor = .white
+                       seeMoreController.heightAnchor.constraint(equalTo: caseupdateviewController.layoutMarginsGuide.heightAnchor, multiplier: 0.3).isActive = true
+                        seeMoreController.backgroundColor = .white
                 
         // See Map Button............................
-                      caseupdateviewController.addSubview(seeMapButton)
+                      seeMoreController.addSubview(seeMapButton)
                       seeMapButton.translatesAutoresizingMaskIntoConstraints = false
-                      seeMapButton.topAnchor.constraint(equalTo: caseupdateviewController.topAnchor, constant: 2).isActive = true
-                      seeMapButton.trailingAnchor.constraint(equalTo: caseupdateviewController.trailingAnchor).isActive = true
-                      seeMapButton.heightAnchor.constraint(equalTo: view.layoutMarginsGuide.heightAnchor, multiplier: 0.05).isActive = true
+                      seeMapButton.topAnchor.constraint(equalTo: seeMoreController.topAnchor, constant: 8).isActive = true
+                      seeMapButton.trailingAnchor.constraint(equalTo: seeMoreController.trailingAnchor).isActive = true
+                      seeMapButton.heightAnchor.constraint(equalTo: seeMoreController.layoutMarginsGuide.heightAnchor, multiplier: 1).isActive = true
                               
         // SeeMoreLabel1.........
                 
-                caseupdateviewController.addSubview(SeeMoreLabel1)
+                seeMoreController.addSubview(SeeMoreLabel1)
                 SeeMoreLabel1.translatesAutoresizingMaskIntoConstraints = false
-                SeeMoreLabel1.topAnchor.constraint(equalTo: caseupdateviewController.topAnchor, constant: 2).isActive = true
-                SeeMoreLabel1.leadingAnchor.constraint(equalTo: caseupdateviewController.leadingAnchor, constant: 2).isActive = true
-                SeeMoreLabel1.heightAnchor.constraint(equalTo: view.layoutMarginsGuide.heightAnchor, multiplier: 0.05).isActive = true
+                SeeMoreLabel1.topAnchor.constraint(equalTo: seeMoreController.topAnchor, constant: 8).isActive = true
+                SeeMoreLabel1.leadingAnchor.constraint(equalTo: seeMoreController.leadingAnchor, constant: 2).isActive = true
+                SeeMoreLabel1.heightAnchor.constraint(equalTo: seeMoreController.layoutMarginsGuide.heightAnchor, multiplier: 1).isActive = true
                 
         //....Seperator
-                caseupdateviewController.addSubview(separatorView)
+                seeMoreController.addSubview(separatorView)
                 separatorView.backgroundColor = .lightGray
                 separatorView.translatesAutoresizingMaskIntoConstraints = false
-                separatorView.topAnchor.constraint(equalTo: caseupdateviewController.topAnchor, constant: 0).isActive = true
-                separatorView.leadingAnchor.constraint(equalTo: caseupdateviewController.leadingAnchor, constant: 5).isActive = true
-                separatorView.trailingAnchor.constraint(equalTo: caseupdateviewController.trailingAnchor, constant: -5).isActive = true
-                separatorView.bottomAnchor.constraint(equalTo: SeeMoreLabel1.topAnchor).isActive = true
+                separatorView.topAnchor.constraint(equalTo: seeMoreController.topAnchor, constant: 0).isActive = true
+                separatorView.leadingAnchor.constraint(equalTo: seeMoreController.leadingAnchor, constant: 5).isActive = true
+                separatorView.trailingAnchor.constraint(equalTo: seeMoreController.trailingAnchor, constant: -5).isActive = true
+                separatorView.heightAnchor.constraint(equalTo: seeMoreController.layoutMarginsGuide.heightAnchor, multiplier: 0.10).isActive = true
+       
+//...infected column detals ....
+      caseupdateviewController.addSubview(infectedController)
+          infectedController.translatesAutoresizingMaskIntoConstraints = false
+          infectedController.topAnchor.constraint(equalTo: seeMoreController.bottomAnchor, constant: 0).isActive = true
+          infectedController.leadingAnchor.constraint(equalTo: caseupdateviewController.leadingAnchor, constant: 0).isActive = true
+          infectedController.bottomAnchor.constraint(equalTo: mapviewController.topAnchor, constant: 0).isActive = true
+          infectedController.widthAnchor.constraint(equalTo: caseupdateviewController.layoutMarginsGuide.widthAnchor, multiplier: 0.34).isActive = true
+       
+        
+//...death column detals ....
+    caseupdateviewController.addSubview(deathController)
+           deathController.translatesAutoresizingMaskIntoConstraints = false
+           deathController.topAnchor.constraint(equalTo: seeMoreController.bottomAnchor, constant: 0).isActive = true
+           deathController.leadingAnchor.constraint(equalTo: infectedController.trailingAnchor, constant: 0).isActive = true
+           deathController.bottomAnchor.constraint(equalTo: mapviewController.topAnchor, constant: 0).isActive = true
+           deathController.widthAnchor.constraint(equalTo: caseupdateviewController.layoutMarginsGuide.widthAnchor, multiplier: 0.34).isActive = true
+        
+    
+//...recovered column detals ....
+    caseupdateviewController.addSubview(recoveredController)
+           recoveredController.translatesAutoresizingMaskIntoConstraints = false
+           recoveredController.topAnchor.constraint(equalTo: seeMoreController.bottomAnchor, constant: 0).isActive = true
+           recoveredController.leadingAnchor.constraint(equalTo: deathController.trailingAnchor, constant: 0).isActive = true
+           recoveredController.bottomAnchor.constraint(equalTo: mapviewController.topAnchor, constant: 0).isActive = true
+           recoveredController.widthAnchor.constraint(equalTo: caseupdateviewController.layoutMarginsGuide.widthAnchor, multiplier: 0.34).isActive = true
+        
+        
+        
+//        Image dots Yello.....................
+ infectedController.addSubview(yellowDotPic)
+        yellowDotPic.translatesAutoresizingMaskIntoConstraints = false
+        yellowDotPic.topAnchor.constraint(equalTo: infectedController.topAnchor, constant: 0).isActive = true
+        yellowDotPic.leadingAnchor.constraint(equalTo: infectedController.leadingAnchor, constant: 42).isActive = true
+        yellowDotPic.trailingAnchor.constraint(equalTo: infectedController.trailingAnchor, constant: -42).isActive = true
+        yellowDotPic.bottomAnchor.constraint(equalTo: infectedController.bottomAnchor, constant: -65).isActive = true
+        
+//        Image dots Red.....................
+    deathController.addSubview(redDotPic)
+           redDotPic.translatesAutoresizingMaskIntoConstraints = false
+           redDotPic.topAnchor.constraint(equalTo: deathController.topAnchor, constant: 0).isActive = true
+           redDotPic.leadingAnchor.constraint(equalTo: deathController.leadingAnchor, constant: 42).isActive = true
+           redDotPic.trailingAnchor.constraint(equalTo: deathController.trailingAnchor, constant: -42).isActive = true
+           redDotPic.bottomAnchor.constraint(equalTo: deathController.bottomAnchor, constant: -65).isActive = true
+         
+ //        Image dots Green.....................
+        
+     recoveredController.addSubview(greenDotPic)
+            greenDotPic.translatesAutoresizingMaskIntoConstraints = false
+            greenDotPic.topAnchor.constraint(equalTo: recoveredController.topAnchor, constant: 0).isActive = true
+            greenDotPic.leadingAnchor.constraint(equalTo: recoveredController.leadingAnchor, constant: 42).isActive = true
+            greenDotPic.trailingAnchor.constraint(equalTo: recoveredController.trailingAnchor, constant: -42).isActive = true
+            greenDotPic.bottomAnchor.constraint(equalTo: recoveredController.bottomAnchor, constant: -65).isActive = true
+    
+    //   infectedCountLabel
+       infectedController.addSubview(infectedCountLabel)
+       infectedCountLabel.translatesAutoresizingMaskIntoConstraints = false
+       infectedCountLabel.topAnchor.constraint(equalTo: yellowDotPic.bottomAnchor, constant: 0).isActive = true
+       infectedCountLabel.leadingAnchor.constraint(equalTo: infectedController.leadingAnchor, constant: 46).isActive = true
+          
+    //deathCountLabel
+        deathController.addSubview(deathCountLabel)
+        deathCountLabel.translatesAutoresizingMaskIntoConstraints = false
+        deathCountLabel.topAnchor.constraint(equalTo: redDotPic.bottomAnchor, constant: 0).isActive = true
+        deathCountLabel.leadingAnchor.constraint(equalTo: deathController.leadingAnchor, constant: 46).isActive = true
+
+    //recoveredCoutLabel
+        recoveredController.addSubview(recoveredCountLabel)
+        recoveredCountLabel.translatesAutoresizingMaskIntoConstraints = false
+        recoveredCountLabel.topAnchor.constraint(equalTo: greenDotPic.bottomAnchor, constant: 0).isActive = true
+        recoveredCountLabel.leadingAnchor.constraint(equalTo: recoveredController.leadingAnchor, constant: 38).isActive = true
+        
+  //infectedLabel
+     infectedController.addSubview(infectedLabel)
+        infectedLabel.translatesAutoresizingMaskIntoConstraints = false
+        infectedLabel.topAnchor.constraint(equalTo: infectedCountLabel.bottomAnchor, constant: 0).isActive = true
+        infectedLabel.leadingAnchor.constraint(equalTo: infectedController.leadingAnchor, constant: 23).isActive = true
+        
+  //deathsLabel
+        deathController.addSubview(deathsLabel)
+           deathsLabel.translatesAutoresizingMaskIntoConstraints = false
+           deathsLabel.topAnchor.constraint(equalTo: deathCountLabel.bottomAnchor, constant: 0).isActive = true
+           deathsLabel.leadingAnchor.constraint(equalTo: deathController.leadingAnchor, constant: 30).isActive = true
+        
+        
+   //recoveredLabel
+        recoveredController.addSubview(recoveredLabel)
+           recoveredLabel.translatesAutoresizingMaskIntoConstraints = false
+           recoveredLabel.topAnchor.constraint(equalTo: recoveredCountLabel.bottomAnchor, constant: 0).isActive = true
+           recoveredLabel.leadingAnchor.constraint(equalTo: recoveredController.leadingAnchor, constant: 23).isActive = true
+        
+        
+        
         func configureNavigationBar() {
             navigationController?.navigationBar.isHidden = true
             navigationController?.navigationBar.barStyle = .black
