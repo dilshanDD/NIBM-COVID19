@@ -18,7 +18,7 @@ class notificationViewController: UIViewController,UITableViewDelegate,UITableVi
         view.backgroundColor = .white
       
 
-     notificationArray.append(NotificationModal(notificationImage: #imageLiteral(resourceName: "WhatsApp Image 2020-09-17 at 1.00.40 PM"), notificationMessage: "NIBM Closed until further notice"))
+     notificationArray.append(NotificationModal(notificationImage: #imageLiteral(resourceName: "WhatsApp Image 2020-09-17 at 1.00.40 PM"), notificationMessage: "NIBM closed until further notice"))
                
                view.backgroundColor = .black
                setTableView()
