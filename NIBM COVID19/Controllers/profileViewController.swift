@@ -11,6 +11,7 @@ import UIKit
 import Firebase
 import FirebaseAuth
 import FirebaseStorage
+import LocalAuthentication
 
 class profileViewController: UIViewController {
 
@@ -55,6 +56,15 @@ class profileViewController: UIViewController {
         return UITextField().textField(withPlaceholder: "Country", isSecureTextEntry: false)
     }()
     
+    private let faceIDButton: UIButton = {
+    let button = UIButton(type: .system)
+    let attributedTitle = NSMutableAttributedString(string: "Try FaceID", attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 20), NSAttributedString.Key.foregroundColor: UIColor.lightGray])
+    attributedTitle.append(NSAttributedString(string: "",attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 20), NSAttributedString.Key.foregroundColor: UIColor.white]))
+    button.setAttributedTitle(attributedTitle, for: .normal)
+    button.addTarget(self, action: #selector(handlefaceID), for: .touchUpInside)
+    return button
+    }()
+    
     private let updateButton: UIButton = {
            let button = UIButton(type: .system)
            let attributedTitle = NSMutableAttributedString(string: "Update", attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 20), NSAttributedString.Key.foregroundColor: UIColor.lightGray])
@@ -90,7 +100,20 @@ class profileViewController: UIViewController {
          handleRegister()
     }
     
-    
+    @objc func handlefaceID() {
+        let context:LAContext = LAContext()
+        
+        if context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: nil){
+            context.evaluatePolicy(LAPolicy.deviceOwnerAuthenticationWithBiometrics,localizedReason: "Message") {
+                (good,error) in
+                if good {
+                    print("Good")
+                }else {
+                    print("Try Again")
+                }
+            }
+        }
+     }
     
     
     func configureUI() {
@@ -139,11 +162,21 @@ class profileViewController: UIViewController {
         userTemp.topAnchor.constraint(equalTo: countryContainerView.bottomAnchor, constant: 10).isActive = true
         
         
+        view.addSubview(faceIDButton)
+        faceIDButton.translatesAutoresizingMaskIntoConstraints = false
+        faceIDButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 100).isActive = true
+        faceIDButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -100).isActive = true
+        faceIDButton.heightAnchor.constraint(equalTo: view.layoutMarginsGuide.heightAnchor, multiplier: 0.1).isActive = true
+        faceIDButton.bottomAnchor.constraint(equalTo: updateButton.bottomAnchor, constant: -20).isActive = true
+        
     }
     
     override var preferredStatusBarStyle : UIStatusBarStyle {
         return .lightContent
     }
+    
+    
+    
 }
 extension profileViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
