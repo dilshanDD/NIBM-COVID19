@@ -5,7 +5,7 @@
 //  Created by DilshanKumarasingheMac on 8/29/20.
 //  Copyright © 2020 NIBM. All rights reserved.
 //
-
+import FirebaseCore
 import UIKit
 
 @UIApplicationMain
@@ -14,9 +14,10 @@ var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
+        FirebaseApp.configure()
         window = UIWindow()
         window?.makeKeyAndVisible()
-        window?.rootViewController = ViewController_Login()
+        window?.rootViewController = UINavigationController(rootViewController: homeViewController())
         return true
     }
 

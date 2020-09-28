@@ -32,6 +32,14 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>NIBM COVID19 App need to access your MAP</string>
+	<key>NSLocationUsageDescription</key>
+	<string>NIBM COVID19 App  need to access your Location</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>NIBM COVID19 App  keep your location for future usage</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>NIBM COVID19 App asking your location</string>
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>

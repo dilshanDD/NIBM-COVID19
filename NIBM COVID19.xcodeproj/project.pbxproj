@@ -9,7 +9,35 @@
 /* Begin PBXBuildFile section */
 		7536F6C75E7E7FC212D9E0AF /* Pods_NIBM_COVID19.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8CAE2FB7CCA7231A7C3ED25 /* Pods_NIBM_COVID19.framework */; };
 		8EC3F5DB0771368C723F8680 /* Pods_NIBM_COVID19_NIBM_COVID19UITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8637B49096469AB8BDC1CFB0 /* Pods_NIBM_COVID19_NIBM_COVID19UITests.framework */; };
-		E37A08BD2507E492005844A6 /* ViewController_Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = E37A08BC2507E492005844A6 /* ViewController_Login.swift */; };
+		E343EDBC251223C900EF683E /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = E343EDBB251223C900EF683E /* Service.swift */; };
+		E343EDBE2512242600EF683E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E343EDBD2512242600EF683E /* User.swift */; };
+		E343EDC02512246600EF683E /* LocationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E343EDBF2512246600EF683E /* LocationHandler.swift */; };
+		E343EDC225125B9C00EF683E /* LocationInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E343EDC125125B9C00EF683E /* LocationInputView.swift */; };
+		E343EDC82512664C00EF683E /* LocationInputActivationUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E343EDC72512664C00EF683E /* LocationInputActivationUIView.swift */; };
+		E343EDCC2512691B00EF683E /* UserAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E343EDCB2512691B00EF683E /* UserAnnotation.swift */; };
+		E343EDCE25127D0000EF683E /* LocationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E343EDCD25127D0000EF683E /* LocationTableViewCell.swift */; };
+		E345B8222510833A00BC5C00 /* DSafeActionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E345B8212510833A00BC5C00 /* DSafeActionViewController.swift */; };
+		E345B8242510836300BC5C00 /* ESafeActionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E345B8232510836300BC5C00 /* ESafeActionViewController.swift */; };
+		E345B8262510837D00BC5C00 /* FSafeActionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E345B8252510837D00BC5C00 /* FSafeActionViewController.swift */; };
+		E345B8282510839700BC5C00 /* GSafeActionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E345B8272510839700BC5C00 /* GSafeActionViewController.swift */; };
+		E345B82A251083E000BC5C00 /* BSurveyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E345B829251083E000BC5C00 /* BSurveyViewController.swift */; };
+		E345B82C2510843000BC5C00 /* CSurveyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E345B82B2510843000BC5C00 /* CSurveyViewController.swift */; };
+		E345B82E2510845C00BC5C00 /* DSurveyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E345B82D2510845C00BC5C00 /* DSurveyViewController.swift */; };
+		E345B832251095B700BC5C00 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E345B831251095B700BC5C00 /* MapViewController.swift */; };
+		E346416B250BDF2100B4A548 /* signUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E346416A250BDF2100B4A548 /* signUpViewController.swift */; };
+		E346416D250BE19800B4A548 /* loginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E346416C250BE19800B4A548 /* loginViewController.swift */; };
+		E346DEAC250E6CC700CDFBBF /* notificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E346DEAB250E6CC700CDFBBF /* notificationViewController.swift */; };
+		E346DEAE250E8C6E00CDFBBF /* updateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E346DEAD250E8C6E00CDFBBF /* updateViewController.swift */; };
+		E348F22C250CA88C00E9C589 /* AuthButtonUIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E348F22B250CA88C00E9C589 /* AuthButtonUIButton.swift */; };
+		E348F22E250CEAFF00E9C589 /* homeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E348F22D250CEAFF00E9C589 /* homeViewController.swift */; };
+		E35598D6250F9BC700DBB85D /* profileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E35598D5250F9BC700DBB85D /* profileViewController.swift */; };
+		E35598D8250F9BED00DBB85D /* contactUsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E35598D7250F9BED00DBB85D /* contactUsViewController.swift */; };
+		E35598DA250F9C0900DBB85D /* shareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E35598D9250F9C0900DBB85D /* shareViewController.swift */; };
+		E35598DE250FEB2200DBB85D /* createNotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E35598DD250FEB2200DBB85D /* createNotificationViewController.swift */; };
+		E35598E4250FF47500DBB85D /* ASurveyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E35598E3250FF47500DBB85D /* ASurveyViewController.swift */; };
+		E35598E6250FF4EE00DBB85D /* ASafeActionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E35598E5250FF4EE00DBB85D /* ASafeActionViewController.swift */; };
+		E35598E8250FF86800DBB85D /* BSafeActionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E35598E7250FF86800DBB85D /* BSafeActionViewController.swift */; };
+		E35598EA2510012A00DBB85D /* CSafeActionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E35598E92510012A00DBB85D /* CSafeActionViewController.swift */; };
 		E37A08BF2507E902005844A6 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E37A08BE2507E902005844A6 /* Extensions.swift */; };
 		E39FE19524FA1C620042C1AA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E39FE19424FA1C620042C1AA /* AppDelegate.swift */; };
 		E39FE19E24FA1C620042C1AA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E39FE19D24FA1C620042C1AA /* Assets.xcassets */; };
@@ -17,6 +45,7 @@
 		E39FE1AC24FA1C630042C1AA /* NIBM_COVID19Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E39FE1AB24FA1C630042C1AA /* NIBM_COVID19Tests.swift */; };
 		E39FE1B724FA1C630042C1AA /* NIBM_COVID19UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E39FE1B624FA1C630042C1AA /* NIBM_COVID19UITests.swift */; };
 		E39FE1C524FA34B10042C1AA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E39FE1C424FA34B10042C1AA /* GoogleService-Info.plist */; };
+		E3A02EE7250DEB1C006A8261 /* settingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3A02EE6250DEB1C006A8261 /* settingViewController.swift */; };
 		FA6CADF61E76446ACE71E5EA /* Pods_NIBM_COVID19Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 682AEEBB619C356268E1E334 /* Pods_NIBM_COVID19Tests.framework */; };
 /* End PBXBuildFile section */
 
@@ -45,7 +74,35 @@
 		8637B49096469AB8BDC1CFB0 /* Pods_NIBM_COVID19_NIBM_COVID19UITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NIBM_COVID19_NIBM_COVID19UITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2D1835A6AB0AAF84F9FFCE0 /* Pods-NIBM COVID19Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NIBM COVID19Tests.debug.xcconfig"; path = "Target Support Files/Pods-NIBM COVID19Tests/Pods-NIBM COVID19Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		B847C628C35D2A2DF855DF2B /* Pods-NIBM COVID19.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NIBM COVID19.debug.xcconfig"; path = "Target Support Files/Pods-NIBM COVID19/Pods-NIBM COVID19.debug.xcconfig"; sourceTree = "<group>"; };
-		E37A08BC2507E492005844A6 /* ViewController_Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController_Login.swift; sourceTree = "<group>"; };
+		E343EDBB251223C900EF683E /* Service.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
+		E343EDBD2512242600EF683E /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		E343EDBF2512246600EF683E /* LocationHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationHandler.swift; sourceTree = "<group>"; };
+		E343EDC125125B9C00EF683E /* LocationInputView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationInputView.swift; sourceTree = "<group>"; };
+		E343EDC72512664C00EF683E /* LocationInputActivationUIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationInputActivationUIView.swift; sourceTree = "<group>"; };
+		E343EDCB2512691B00EF683E /* UserAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAnnotation.swift; sourceTree = "<group>"; };
+		E343EDCD25127D0000EF683E /* LocationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationTableViewCell.swift; sourceTree = "<group>"; };
+		E345B8212510833A00BC5C00 /* DSafeActionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DSafeActionViewController.swift; sourceTree = "<group>"; };
+		E345B8232510836300BC5C00 /* ESafeActionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ESafeActionViewController.swift; sourceTree = "<group>"; };
+		E345B8252510837D00BC5C00 /* FSafeActionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FSafeActionViewController.swift; sourceTree = "<group>"; };
+		E345B8272510839700BC5C00 /* GSafeActionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GSafeActionViewController.swift; sourceTree = "<group>"; };
+		E345B829251083E000BC5C00 /* BSurveyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BSurveyViewController.swift; sourceTree = "<group>"; };
+		E345B82B2510843000BC5C00 /* CSurveyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSurveyViewController.swift; sourceTree = "<group>"; };
+		E345B82D2510845C00BC5C00 /* DSurveyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DSurveyViewController.swift; sourceTree = "<group>"; };
+		E345B831251095B700BC5C00 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		E346416A250BDF2100B4A548 /* signUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = signUpViewController.swift; sourceTree = "<group>"; };
+		E346416C250BE19800B4A548 /* loginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loginViewController.swift; sourceTree = "<group>"; };
+		E346DEAB250E6CC700CDFBBF /* notificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = notificationViewController.swift; sourceTree = "<group>"; };
+		E346DEAD250E8C6E00CDFBBF /* updateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = updateViewController.swift; sourceTree = "<group>"; };
+		E348F22B250CA88C00E9C589 /* AuthButtonUIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthButtonUIButton.swift; sourceTree = "<group>"; };
+		E348F22D250CEAFF00E9C589 /* homeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = homeViewController.swift; sourceTree = "<group>"; };
+		E35598D5250F9BC700DBB85D /* profileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = profileViewController.swift; sourceTree = "<group>"; };
+		E35598D7250F9BED00DBB85D /* contactUsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = contactUsViewController.swift; sourceTree = "<group>"; };
+		E35598D9250F9C0900DBB85D /* shareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = shareViewController.swift; sourceTree = "<group>"; };
+		E35598DD250FEB2200DBB85D /* createNotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = createNotificationViewController.swift; sourceTree = "<group>"; };
+		E35598E3250FF47500DBB85D /* ASurveyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASurveyViewController.swift; sourceTree = "<group>"; };
+		E35598E5250FF4EE00DBB85D /* ASafeActionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASafeActionViewController.swift; sourceTree = "<group>"; };
+		E35598E7250FF86800DBB85D /* BSafeActionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BSafeActionViewController.swift; sourceTree = "<group>"; };
+		E35598E92510012A00DBB85D /* CSafeActionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSafeActionViewController.swift; sourceTree = "<group>"; };
 		E37A08BE2507E902005844A6 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		E39FE19124FA1C620042C1AA /* NIBM COVID19.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "NIBM COVID19.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E39FE19424FA1C620042C1AA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -59,6 +116,7 @@
 		E39FE1B624FA1C630042C1AA /* NIBM_COVID19UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NIBM_COVID19UITests.swift; sourceTree = "<group>"; };
 		E39FE1B824FA1C630042C1AA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E39FE1C424FA34B10042C1AA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		E3A02EE6250DEB1C006A8261 /* settingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = settingViewController.swift; sourceTree = "<group>"; };
 		E8CAE2FB7CCA7231A7C3ED25 /* Pods_NIBM_COVID19.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NIBM_COVID19.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F86CA8BD2845DDF6F0727644 /* Pods-NIBM COVID19-NIBM COVID19UITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NIBM COVID19-NIBM COVID19UITests.release.xcconfig"; path = "Target Support Files/Pods-NIBM COVID19-NIBM COVID19UITests/Pods-NIBM COVID19-NIBM COVID19UITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -117,7 +175,28 @@
 		E37A08B72507E0A9005844A6 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				E37A08BC2507E492005844A6 /* ViewController_Login.swift */,
+				E346416C250BE19800B4A548 /* loginViewController.swift */,
+				E346416A250BDF2100B4A548 /* signUpViewController.swift */,
+				E348F22D250CEAFF00E9C589 /* homeViewController.swift */,
+				E3A02EE6250DEB1C006A8261 /* settingViewController.swift */,
+				E346DEAB250E6CC700CDFBBF /* notificationViewController.swift */,
+				E346DEAD250E8C6E00CDFBBF /* updateViewController.swift */,
+				E35598D5250F9BC700DBB85D /* profileViewController.swift */,
+				E35598D7250F9BED00DBB85D /* contactUsViewController.swift */,
+				E35598D9250F9C0900DBB85D /* shareViewController.swift */,
+				E35598DD250FEB2200DBB85D /* createNotificationViewController.swift */,
+				E35598E3250FF47500DBB85D /* ASurveyViewController.swift */,
+				E345B829251083E000BC5C00 /* BSurveyViewController.swift */,
+				E345B82B2510843000BC5C00 /* CSurveyViewController.swift */,
+				E345B82D2510845C00BC5C00 /* DSurveyViewController.swift */,
+				E35598E5250FF4EE00DBB85D /* ASafeActionViewController.swift */,
+				E35598E7250FF86800DBB85D /* BSafeActionViewController.swift */,
+				E35598E92510012A00DBB85D /* CSafeActionViewController.swift */,
+				E345B8212510833A00BC5C00 /* DSafeActionViewController.swift */,
+				E345B8232510836300BC5C00 /* ESafeActionViewController.swift */,
+				E345B8252510837D00BC5C00 /* FSafeActionViewController.swift */,
+				E345B8272510839700BC5C00 /* GSafeActionViewController.swift */,
+				E345B831251095B700BC5C00 /* MapViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -125,6 +204,8 @@
 		E37A08B82507E0B7005844A6 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				E343EDBD2512242600EF683E /* User.swift */,
+				E343EDCB2512691B00EF683E /* UserAnnotation.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -132,6 +213,10 @@
 		E37A08B92507E0C6005844A6 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				E343EDC125125B9C00EF683E /* LocationInputView.swift */,
+				E348F22B250CA88C00E9C589 /* AuthButtonUIButton.swift */,
+				E343EDCD25127D0000EF683E /* LocationTableViewCell.swift */,
+				E343EDC72512664C00EF683E /* LocationInputActivationUIView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -139,6 +224,7 @@
 		E37A08BA2507E0CD005844A6 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				E343EDBB251223C900EF683E /* Service.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -147,6 +233,7 @@
 			isa = PBXGroup;
 			children = (
 				E37A08BE2507E902005844A6 /* Extensions.swift */,
+				E343EDBF2512246600EF683E /* LocationHandler.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -447,9 +534,38 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E37A08BD2507E492005844A6 /* ViewController_Login.swift in Sources */,
+				E345B82C2510843000BC5C00 /* CSurveyViewController.swift in Sources */,
+				E343EDBC251223C900EF683E /* Service.swift in Sources */,
+				E345B8282510839700BC5C00 /* GSafeActionViewController.swift in Sources */,
+				E345B8222510833A00BC5C00 /* DSafeActionViewController.swift in Sources */,
 				E37A08BF2507E902005844A6 /* Extensions.swift in Sources */,
+				E343EDBE2512242600EF683E /* User.swift in Sources */,
+				E35598DE250FEB2200DBB85D /* createNotificationViewController.swift in Sources */,
+				E346DEAC250E6CC700CDFBBF /* notificationViewController.swift in Sources */,
+				E346DEAE250E8C6E00CDFBBF /* updateViewController.swift in Sources */,
+				E35598E4250FF47500DBB85D /* ASurveyViewController.swift in Sources */,
+				E343EDC82512664C00EF683E /* LocationInputActivationUIView.swift in Sources */,
+				E345B832251095B700BC5C00 /* MapViewController.swift in Sources */,
+				E348F22E250CEAFF00E9C589 /* homeViewController.swift in Sources */,
+				E345B8242510836300BC5C00 /* ESafeActionViewController.swift in Sources */,
+				E345B8262510837D00BC5C00 /* FSafeActionViewController.swift in Sources */,
+				E3A02EE7250DEB1C006A8261 /* settingViewController.swift in Sources */,
+				E343EDCC2512691B00EF683E /* UserAnnotation.swift in Sources */,
+				E35598E6250FF4EE00DBB85D /* ASafeActionViewController.swift in Sources */,
+				E343EDCE25127D0000EF683E /* LocationTableViewCell.swift in Sources */,
+				E35598E8250FF86800DBB85D /* BSafeActionViewController.swift in Sources */,
+				E35598EA2510012A00DBB85D /* CSafeActionViewController.swift in Sources */,
+				E345B82E2510845C00BC5C00 /* DSurveyViewController.swift in Sources */,
+				E343EDC225125B9C00EF683E /* LocationInputView.swift in Sources */,
+				E343EDC02512246600EF683E /* LocationHandler.swift in Sources */,
+				E35598D6250F9BC700DBB85D /* profileViewController.swift in Sources */,
+				E345B82A251083E000BC5C00 /* BSurveyViewController.swift in Sources */,
+				E35598D8250F9BED00DBB85D /* contactUsViewController.swift in Sources */,
+				E346416B250BDF2100B4A548 /* signUpViewController.swift in Sources */,
 				E39FE19524FA1C620042C1AA /* AppDelegate.swift in Sources */,
+				E348F22C250CA88C00E9C589 /* AuthButtonUIButton.swift in Sources */,
+				E346416D250BE19800B4A548 /* loginViewController.swift in Sources */,
+				E35598DA250F9C0900DBB85D /* shareViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
